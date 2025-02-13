@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/cda2098154.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" media="print" href="print.css" />
+    <title>Ramais PL</title>
+</head>
+
+<body>
+  <div class="toggle-mode">
+    <input type="checkbox" class="checkbox" id="chk"/>
+    
+    <label class="label" for="chk">
+      <img src = "https://www.svgrepo.com/show/18743/sun.svg"/>
+      <i class="fas fa-moon"></i>
+      <div class="ball"></div>
+    </label>
+    
+  </div>
+  
+  <div class="sidebar">
+        <h3>Filtros</h3>
+        <input type="text" id="search-name" placeholder="Procurar por nome" onkeyup="filterTable()">
+        <select id="search-sector" onchange="filterTable()">
+            <option value="">Procurar por setor</option>
+            <option value="Almoxarifado">Almoxarifado</option>
+            <option value="Comercial">Comercial</option>
+            <option value="Compras">Compras</option>
+            <option value="Corte">Corte</option>
+            <option value="Estilo">Estilo</option>
+            <option value="Estoque">Estoque</option>
+            <option value="Expedição">Expedição</option>
+            <option value="Ficha">Ficha</option>
+            <option value="Financeiro">Financeiro</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Modelagem">Modelagem</option>
+            <option value="PPCP">PPCP</option>
+            <option value="Qualidade">Qualidade</option>
+            <option value="TI">TI</option>
+        </select>
+        <input type="text" id="search-ramal" placeholder="Procurar por ramal" onkeyup="filterTable()">
+        <input type="text" id="search-email" placeholder="Procurar por email" onkeyup="filterTable()">
+        <input type="text" id="search-phone" placeholder="Procurar por telefone" onkeyup="filterTable()">
+    </div>
+    <div class="container">
+        <h2>Lista de Contatos</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">Nome <span class="sort-icon">⮃</span></th>
+                    <th onclick="sortTable(1)">Setor <span class="sort-icon">⮃</span></th>
+                    <th onclick="sortTable(2)">Ramal <span class="sort-icon">⮃</span></th>
+                    <th onclick="sortTable(3)">Email <span class="sort-icon">⮃</span></th>
+                    <th onclick="sortTable(4)">Telefone <span class="sort-icon">⮃</span></th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+            </tbody>
+        </table>
+        <h4>Copyright©2025 PL INDUSTRIA DE CONFECÇÕES EIRELLI - Todos os direitos reservados.</h4>
+        <div class="info">
+            Caso precise adicionar um novo contato, entre em contato com a recepcionista. Caso deseje imprimir a lista, utilize a opção "Imprimir" no menu superior.
+              </div>
+    </div>
+
+<div class="admin-area">
+    <button class="admin-button" onclick="openLoginModal()"><i class="fa-solid fa-gear"></i></button>
+    <button class="edit-button" onclick="editContact()" style="display: none;"><i class="fa-solid fa-user-pen"></i></button>
+    <button class="delete-button" onclick="deleteContact()" style="display: none;"><i class="fa-solid fa-user-minus"></i></button>
+    <button class="add-button" onclick="openAddContactModal()" style="display: none;"><i class="fa-solid fa-user-plus"></i></button>
+</div>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <h2>Login</h2>
+            <input type="text" id="login" placeholder="Login">
+            <input type="password" id="password" placeholder="Senha">
+            <p id="errorMessage" class="error-message"></p>
+            <button onclick="validateLogin()">Entrar</button>
+        </div>
+    </div>
+    
+    <div id="addContactModal" class="modal">
+        <div class="modal-content">
+            <h2>Adicionar Contato</h2>
+            <input type="text" id="newName" placeholder="Nome" required>
+            <select id="newSector">
+                <option value="">Setor</option>
+                <option value="Almoxarifado">Almoxarifado</option>
+                <option value="Comercial">Comercial</option>
+                <option value="Compras">Compras</option>
+                <option value="Corte">Corte</option>
+                <option value="Estilo">Estilo</option>
+                <option value="Estoque">Estoque</option>
+                <option value="Expedição">Expedição</option>
+                <option value="Ficha">Ficha</option>
+                <option value="Financeiro">Financeiro</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Modelagem">Modelagem</option>
+                <option value="PPCP">PPCP</option>
+                <option value="Qualidade">Qualidade</option>
+                <option value="TI">TI</option>
+            </select>
+            <input type="text" id="newRamal" maxlenght="3" placeholder="Ramal" required>
+            <input type="text" id="newEmail" placeholder="Email" required>
+            <input type="text" id="newPhone" maxlenght="17" placeholder="Telefone" required>
+            <button onclick="addContact()">Adicionar</button>
+            <button onclick="closeAddContactModal()">Cancelar</button>
+        </div>
+    </div>
+
+    <div id="editContactModal" class="modal">
+        <div class="modal-content">
+            <h2>Editar Contato</h2>
+            <input type="text" id="editName" placeholder="Nome">
+            <input type="text" id="editSector" placeholder="Setor">
+            <input type="text" id="editRamal" placeholder="Ramal">
+            <input type="text" id="editEmail" placeholder="Email">
+            <input type="text" id="editPhone" placeholder="Telefone">
+            <button onclick="saveEditedContact()">Salvar</button>
+            <button onclick="closeEditModal()">Cancelar</button>
+        </div>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>
