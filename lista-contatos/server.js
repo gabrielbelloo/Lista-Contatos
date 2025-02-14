@@ -1,17 +1,17 @@
 const express = require('express');
 const { Pool } = require('pg');
 const cors = require('cors');
-require('dotenv').config();
+require('dotenv').config({ path: './config.env'});
 
 const app = express();
 const port = 3000;
 
 const pool = new Pool({
-    user: 'postgres',
-    host: '10.1.2.248',
-    database: 'contatos_db',
-    password: '$#Lnx135',
-    port: 5432,
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: process.env.DB_DATABASE,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT,
 });
 
 app.use(cors());
