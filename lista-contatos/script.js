@@ -41,18 +41,6 @@ function sortTable(columnIndex) {
     table.dataset.order = ascending ? "asc" : "desc";
 }
 
-const chk = document.getElementById("chk")
-
-chk.addEventListener("change", () => {
-    document.body.classList.toggle("dark-mode")
-})
-
-function checkbox() {
-    document.body.classList.toggle("dark-mode");
-    let button = document.querySelector(".checkbox");
-}
-
-
 async function fetchContatos() {
     try {
         const response = await fetch('http://10.1.2.248:3001/contatos');
@@ -76,10 +64,6 @@ async function fetchContatos() {
                 <td>${contato.ramal}</td>
                 <td>${contato.email}</td>
                 <td>${contato.telefone}</td>
-                <td>
-                    <button onclick="editContact(${contato.id})">Editar</button>
-                    <button onclick="deleteContact(${contato.id})">Excluir</button>
-                </td>
             `;
             row.addEventListener('click', () => {
                 selectContact(contato.id);
