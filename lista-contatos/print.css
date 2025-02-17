@@ -1,0 +1,20 @@
+* {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .dark-mode {
+      background-color: #f7f9fc;
+  }
+
+  .sidebar, .toggle-mode, .admin-button, .info, .footer {
+      display: none;
+  }
+
+  .container{
+      transform: scale(1.1);
+      background-color: #f7f9fc;
+  }
