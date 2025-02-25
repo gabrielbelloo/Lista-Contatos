@@ -14,19 +14,19 @@ body {
 }
 
 .container{
+    margin-left: 310px;
     display: flex;
     flex: 1;
 
 }
 
 .sidebar {
+    position: fixed;
     width: 280px;
-    height: 100%;
+    height: calc(100% - 65px);
     background: #ffffff;
     padding: 30px 20px;
-    height: 100vh;
     margin-top: 30px;
-    margin-bottom: 30px;
     margin-left: 30px;
     color: black;
 }
@@ -147,8 +147,8 @@ tr:hover td {
 }
 
 .admin-button {
-    top: 570px;
-    left: 52px;  
+    bottom: 270px;
+    left: 22px;  
     position: absolute;
     background-color: #0f0f0f;
     color: #ccc;
@@ -234,18 +234,18 @@ transition: background-color 0.3s ease;
 }
 
 .add-button {
-top: 495px;
-left: 60px;
+bottom: 350px;
+left: 32px;
 }
 
 .edit-button {
-top: 495px;
-left: 142px;
+bottom: 350px;
+left: 114px;
 }
 
 .delete-button {
-top: 495px;
-left: 224px;
+bottom: 350px;
+left: 198px;
 }
 
 .edit-button:hover, .delete-button:hover, .add-button:hover {
