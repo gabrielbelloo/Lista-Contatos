@@ -314,3 +314,10 @@ footer p {
 footer a:hover {
     color: #9d9d9d;
 }
+
+.fa-envelope, .fa-whatsapp{
+    float: right;
+    cursor: pointer;
+    text-decoration: none;
+    color: #111111;
+}
