@@ -41,6 +41,10 @@ function sortTable(columnIndex) {
     table.dataset.order = ascending ? "asc" : "desc";
 }
 
+function formatPhoneNumber(phone) {
+    return phone.replace(/\D/g, '');
+}
+
 async function fetchContatos() {
     try {
         const response = await fetch('http://10.1.2.248:3001/contatos');
@@ -63,7 +67,7 @@ async function fetchContatos() {
                 <td>${contato.setor}</td>
                 <td>${contato.ramal}</td>
                 <td>${contato.email} <a href="mailto:${contato.email}"><i class="fa-solid fa-envelope"></a></i></td>
-                <td>${contato.telefone} <a href="https://wa.me/${contato.telefone}"><i class="fa-brands fa-whatsapp"></a></i></td>
+                <td>${contato.telefone} <a href="https://wa.me/55${formatPhoneNumber(contato.telefone)}"><i class="fa-brands fa-whatsapp"></a></i></td>
             `;
             row.addEventListener('click', () => {
                 selectContact(contato.id);
