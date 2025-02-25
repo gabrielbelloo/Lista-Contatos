@@ -143,18 +143,18 @@ tr:hover td {
     font-size: 16px;
     color: #fff;
     position: absolute;
-    right: 10px;
+    right: 23px;
 }
 
 .admin-button {
-    bottom: 270px;
+    bottom: 300px;
     left: 22px;  
     position: absolute;
     background-color: #0f0f0f;
     color: #ccc;
     border: solid 1px #ccc;
     border-radius: 10px;
-    width:235px;
+    width: 235px;
     height: 50px;
     font-size: 24px;
     cursor: pointer;
@@ -280,7 +280,7 @@ footer {
     margin-left: 52px;
     margin-right: 40px;
     flex: 1 1 200px;
-    text-align:left;
+    text-align: left;
     font-size: 1.1em;
   }
 
@@ -315,7 +315,32 @@ footer a:hover {
     color: #9d9d9d;
 }
 
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    font-size: 12px;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section h3 {
+    margin: 10px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+
 .fa-envelope, .fa-whatsapp{
+    font-size: 1.3em;
     float: right;
     cursor: pointer;
     text-decoration: none;
