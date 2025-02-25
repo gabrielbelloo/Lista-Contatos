@@ -1,10 +1,12 @@
 const express = require('express');
 const { Pool } = require('pg');
+const bodyParser = require('body-parser');
+const rateLimit = require('express-rate-limit');
 const cors = require('cors');
 require('dotenv').config({ path: './config.env'});
 
 const app = express();
-const port = 3000;
+const port = 3001;
 
 const pool = new Pool({
     user: process.env.DB_USER,
@@ -29,6 +31,7 @@ app.get('/contatos', async (req, res) => {
 
 app.get('/contatos/:id', async (req, res) => {
     const { id } = req.params;
+    console.log(`Recebendo requisição para GET /contatos/${req.params.id}`);
 
     try {
         const result = await pool.query('SELECT * FROM contatos WHERE id = $1', [id]);
@@ -109,23 +112,23 @@ app.put('/contatos/:id', async (req, res) => {
 
 app.delete('/contatos/:id', async (req, res) => {
     const { id } = req.params;
-
+    
     try {
-        const result = await pool.query('DELETE FROM contatos WHERE id = $1 RETURNING *', [id]);
-
-        if (result.rows.length === 0) {
-            return res.status(404).json({ error: 'Contato não encontrado.' });
-        }
-
-        res.status(204).send();
+      const result = await pool.query('DELETE FROM contatos WHERE id = $1 RETURNING *', [id]);
+      
+      if (result.rows.length === 0) {
+        return res.status(404).json({ error: 'Contato não encontrado' });
+      }
+      
+      res.json({ message: 'Contato deletado com sucesso', contato: result.rows[0] });
     } catch (err) {
-        console.error('Erro ao excluir contato:', err);
-        res.status(500).json({ error: 'Erro ao excluir contato.' });
+      console.error('Erro ao excluir contato:', err);
+      res.status(500).json({ error: 'Erro ao excluir contato.' });
     }
-});
+  });
 
-app.use((req, res, next) => {
-    res.status(404).json({ error: 'Rota não encontrada.' });
+app.listen(port, () => {
+    console.log(`Servidor rodando em http://10.1.2.248:${port}`);
 });
 
 app.use((err, req, res, next) => {
@@ -133,6 +136,7 @@ app.use((err, req, res, next) => {
     res.status(500).json({ error: 'Erro no servidor.' });
 });
 
-app.listen(port, () => {
-    console.log(`Servidor rodando em http://10.1.2.248:${port}`);
+
+app.use((req, res, next) => {
+    res.status(404).json({ error: 'Rota não encontrada.' });
 });
