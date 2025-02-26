@@ -1,20 +1,10 @@
-const express = require('express');
-const { Pool } = require('pg');
-const bodyParser = require('body-parser');
-const rateLimit = require('express-rate-limit');
-const cors = require('cors');
-require('dotenv').config({ path: './config.env'});
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import pool from './config/db.js';
 
 const app = express();
 const port = 3001;
-
-const pool = new Pool({
-    user: process.env.DB_USER,
-    host: process.env.DB_HOST,
-    database: process.env.DB_DATABASE,
-    password: process.env.DB_PASSWORD,
-    port: process.env.DB_PORT,
-});
 
 app.use(cors());
 app.use(express.json());
