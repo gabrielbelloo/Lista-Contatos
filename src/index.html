@@ -21,6 +21,7 @@
             <option value="Comercial">Comercial</option>
             <option value="Compras">Compras</option>
             <option value="Corte">Corte</option>
+            <option value="Custo">Custo</option>
             <option value="Desenvolvimento">Desenvolvimento</option>
             <option value="Departamento Pessoal">Departamento Pessoal</option>
             <option value="Ecommerce">Ecommerce</option>
@@ -45,10 +46,8 @@
         <hr />
         <input type="text" id="search-phone" placeholder="Procurar por telefone" onkeyup="filterTable()">
 
-        
+    
           <button class="admin-button" onclick="openLoginModal()"><i class="fa-solid fa-gear"></i></button>
-          <button class="edit-button" onclick="editContact()" style="display: none;"><i class="fa-solid fa-user-pen"></i></button>
-          <button class="delete-button" onclick="deleteContact()" style="display: none;"><i class="fa-solid fa-user-minus"></i></button>
           <button class="add-button" onclick="openAddContactModal()" style="display: none;"><i class="fa-solid fa-user-plus"></i></button>
       </div>
 
@@ -93,6 +92,7 @@
                 <option value="Comercial">Comercial</option>
                 <option value="Compras">Compras</option>
                 <option value="Corte">Corte</option>
+                <option value="Custo">Custo</option>
                 <option value="Desenvolvimento">Desenvolvimento</option>
                 <option value="Departamento Pessoal">Departamento Pessoal</option>
                 <option value="Ecommerce">Ecommerce</option>
@@ -114,19 +114,6 @@
             <input type="text" id="newPhone" maxlenght="17" placeholder="Telefone" required>
             <button onclick="addContact()">Adicionar</button>
             <button onclick="closeAddContactModal()">Cancelar</button>
-        </div>
-    </div>
-
-    <div id="editContactModal" class="modal">
-        <div class="modal-content">
-            <h2>Editar Contato</h2>
-            <input type="text" id="editName" placeholder="Nome">
-            <input type="text" id="editSector" placeholder="Setor">
-            <input type="text" id="editRamal" placeholder="Ramal">
-            <input type="text" id="editEmail" placeholder="Email">
-            <input type="text" id="editPhone" placeholder="Telefone">
-            <button onclick="saveEditedContact()">Salvar</button>
-            <button onclick="closeEditModal()">Cancelar</button>
         </div>
     </div>
 

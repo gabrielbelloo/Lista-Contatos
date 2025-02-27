@@ -219,7 +219,7 @@ tr:hover td {
     margin-top: 10px;
 }
 
-.edit-button, .delete-button, .add-button {
+.add-button {
 position: absolute;
 background-color: #0f0f0f;
 color: white;
@@ -233,29 +233,15 @@ box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 transition: background-color 0.3s ease;
 }
 
-.add-button {
-bottom: 350px;
-left: 32px;
-}
-
-.edit-button {
-bottom: 350px;
-left: 114px;
-}
-
-.delete-button {
-bottom: 350px;
-left: 198px;
-}
-
-.edit-button:hover, .delete-button:hover, .add-button:hover {
+.add-button:hover {
 background-color: #1a1a1a;
 }
 
-.checkbox-cell {
-display: none;
-width: 30px;
-text-align: center;
+.edit-button, .delete-button {
+    background-color: transparent;
+    border: none;
+    float: right;
+
 }
 
 footer {
@@ -339,10 +325,32 @@ footer a:hover {
     margin: auto;
 }
 
-.fa-envelope, .fa-whatsapp{
+.fa-envelope{
     font-size: 1.3em;
     float: right;
     cursor: pointer;
     text-decoration: none;
     color: #111111;
+}
+
+.fa-whatsapp {
+    font-size: 1.4em;
+    float: right;
+    cursor: pointer;
+    text-decoration: none;
+    color: #111111;
+    margin-top: 4px;
+    margin-left: 10px;
+}
+
+.fa-trash, .fa-pen-to-square {
+    font-size: 1.5em;
+    cursor: pointer;
+    text-decoration: none;
+    color: #111111;
+    margin: 5px;
+}
+
+.hidden {
+    display: none;
 }
