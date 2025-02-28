@@ -69,8 +69,8 @@ async function fetchContatos() {
                 <td>${contato.ramal}</td>
                 <td>${contato.email} <a href="mailto:${contato.email}"><i class="fa-solid fa-envelope"></a></i></td>
                 <td>${contato.telefone} <a href="https://wa.me/55${formatPhoneNumber(contato.telefone)}"><i class="fa-brands fa-whatsapp"></a></i>
-                    <button class="edit-button" onclick="editContact('${contato.id}')"><i class="fa-solid fa-pen-to-square "></i></button>
-                    <button class="delete-button " onclick="deleteContact('${contato.id}')"><i class="fa-solid fa-trash"></i></button></td>
+                    <button class="edit-button hidden" onclick="editContact('${contato.id}')"><i class="fa-solid fa-pen-to-square"></i></button>
+                    <button class="delete-button hidden" onclick="deleteContact('${contato.id}')"><i class="fa-solid fa-trash"></i></button></td>
 
             `;
             tableBody.appendChild(row);

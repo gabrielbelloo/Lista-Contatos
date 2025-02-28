@@ -147,23 +147,21 @@ tr:hover td {
 }
 
 .admin-button {
-    bottom: 300px;
-    left: 22px;  
-    position: absolute;
-    background-color: #0f0f0f;
-    color: #ccc;
-    border: solid 1px #ccc;
-    border-radius: 10px;
-    width: 235px;
-    height: 50px;
-    font-size: 24px;
+    bottom: 25px;
+    left: 25px;  
+    height: 38px;
+    width: 38px;
+    color: #111111;
+    background-color: #b8b8b8;
+    border: none;
+    border-radius: 100%;
+    font-size: 30px;
     cursor: pointer;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s ease;
 }
 
 .admin-button:hover {
-    background-color: #1a1a1a;
+    color: #bbb;
 }
 
 .modal {
@@ -330,7 +328,7 @@ footer a:hover {
     float: right;
     cursor: pointer;
     text-decoration: none;
-    color: #111111;
+    color: #1a1a1a;
 }
 
 .fa-whatsapp {
@@ -338,17 +336,22 @@ footer a:hover {
     float: right;
     cursor: pointer;
     text-decoration: none;
-    color: #111111;
+    color: #1a1a1a;
     margin-top: 4px;
     margin-left: 10px;
+}
+
+.fa-envelope:hover, .fa-whatsapp:hover, .fa-trash:hover, .fa-pen-to-square:hover{
+    color: #333;
 }
 
 .fa-trash, .fa-pen-to-square {
     font-size: 1.5em;
     cursor: pointer;
     text-decoration: none;
-    color: #111111;
+    color: #1a1a1a;
     margin: 5px;
+    transition: background-color 0.3s ease;
 }
 
 .hidden {
