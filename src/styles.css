@@ -147,10 +147,8 @@ tr:hover td {
 }
 
 .admin-button {
-    display: block;
+    display: inline-block;
     background-color: transparent !important;
-    bottom: 25px;
-    left: 25px;  
     border: none;
 }
 
@@ -209,9 +207,8 @@ tr:hover td {
 }
 
 .add-button {
-    display: block;
+    display: inline-block;
     background-color: transparent !important;
-    position: absolute;
     border: none;
 }
 
@@ -336,8 +333,7 @@ footer a:hover {
 footer img {
     width: 28px;
     height: 28px;
-    margin-left: 8px;
-    margin-right: 8px;
+    margin-right: 10px;
     cursor: pointer;
 
 }
