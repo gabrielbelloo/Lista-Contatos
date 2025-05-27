@@ -70,7 +70,7 @@ async function fetchContatos() {
                 <td>${contato.telefone} <a href="https://wa.me/55${formatPhoneNumber(contato.telefone)}"><i class="fa-brands fa-whatsapp"></a></i>
                     <button class="edit-button hidden" onclick="editContact('${contato.id}')"><i class="fa-solid fa-pen-to-square"></i></button>
                     <button class="delete-button hidden" onclick="deleteContact('${contato.id}')"><i class="fa-solid fa-trash"></i></button></td>
-                <td>${contato.email} <a href="mailto:${contato.email}"><i class="fa-solid fa-envelope"></a></i></td>
+                <td>${contato.email} <a href="mailto:${contato.email}"><i class="fa-solid fa-paper-plane"></i></a></td>
             `;
             tableBody.appendChild(row);
         });
@@ -84,8 +84,8 @@ async function editContact(id) {
     const name = prompt("Digite o novo nome:");
     const sector = prompt("Digite o novo setor:");
     const ramal = prompt("Digite o novo ramal:");
-    const email = prompt("Digite o novo e-mail:");
     const phone = prompt("Digite o novo telefone:");
+    const email = prompt("Digite o novo e-mail:");
 
     if (!name || !sector || !ramal || !email || !phone) {
         alert('Por favor, preencha todos os campos.');
@@ -102,8 +102,8 @@ async function editContact(id) {
                 nome: name,
                 setor: sector,
                 ramal: ramal,
-                email: email,
                 telefone: phone,
+                email: email,
             }),
         });
 
@@ -153,8 +153,9 @@ async function addContact() {
     const newName = document.getElementById('newName').value;
     const newSector = document.getElementById('newSector').value;
     const newRamal = document.getElementById('newRamal').value;
-    const newEmail = document.getElementById('newEmail').value;
     const newPhone = document.getElementById('newPhone').value;
+    const newEmail = document.getElementById('newEmail').value;
+
 
     if (!newName || !newSector || !newRamal || !newEmail || !newPhone) {
         alert('Por favor, preencha todos os campos.');

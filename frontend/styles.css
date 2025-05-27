@@ -162,13 +162,12 @@ table {
     width: 100%;
     position: sticky;
     border-collapse: collapse;
-    border-radius: 8px;
     overflow: hidden;
     box-shadow: 0px 10px 18px #e1e3e1;
 }
 
 th, td {
-    padding: 14px 20px;
+    padding: 2vh 3vh;
     border: 1px solid #ddd;
     text-align: left;
     font-size: 1em;
@@ -176,14 +175,14 @@ th, td {
 }
 
 th {
-    font-size: 1.2em;
+    font-size: 2vh;
     color: #fff;
     cursor: pointer;
     position: relative;
 }
 
 tr {
-    font-size: 0.8em;
+    font-size: 1.7vh;
     background: rgb(0,0,0);
     background: linear-gradient(90deg, rgba(0,0,0,0.87) 0%, rgba(38,38,38,0.9) 50%, rgba(0,0,0,0.87) 100%);
 }
@@ -500,25 +499,25 @@ footer a:hover {
     display: none;
 }
 
-.fa-envelope {
-    font-size: 1.3em;
+.fa-paper-plane {
+    font-size: 1.6vh;
     float: right;
     cursor: pointer;
     text-decoration: none;
     color: #1a1a1a;
+    margin-top: 5px;
 }
 
 .fa-whatsapp {
-    font-size: 1.4em;
+    font-size: 1.8vh;
     float: right;
     cursor: pointer;
     text-decoration: none;
     color: #1a1a1a;
-    margin-top: 4px;
-    margin-left: 10px;
+    margin-top: 5px;
 }
 
-.fa-envelope:hover, .fa-whatsapp:hover, .fa-trash:hover, .fa-pen-to-square:hover {
+.fa-paper-plane:hover, .fa-whatsapp:hover, .fa-trash:hover, .fa-pen-to-square:hover {
     color: #333;
 }
 
