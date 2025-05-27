@@ -10,7 +10,83 @@
 </head>
 
 <body>
-  <div class="sidebar">
+
+    <header>
+
+        <img class="logo"
+            src="https://lh3.googleusercontent.com/pw/AP1GczNrYe0X3ncpDIiD6wZT2_KJA76oK2veSoXuW9sB4tQ28YGpFm_ePJrBIKDUTF8sSVx_hpSC8azmDUDAwf_38pa98nbj9x2k4Wk17WADFp8rQsD2IBiGESOV6tLj9cpjpxmHM0SMx1nGGTSpRAXd-Bg=w416-h169-s-no-gm?authuser=0"
+            alt="Grupo PL">
+
+
+        <div class="header-subsection">
+            <a href="#inicio">Início</a>
+            <a href="#quem-somos">Quem Somos</a>
+            <a href="#metodologia">Metodologia</a>
+            <a href="#clientes">Clientes</a>
+        </div>
+
+        <div class="header-buttons hidden">
+            <button class="menu-btn" onclick="openHeaderMenu()"><i class="fas fa-bars"></i></button>
+            <button class="menu-btn" onclick="openHeaderFilter()"><i class="fas fa-filter"></i></button>
+        </div>
+
+        <div id="menuModal" class="modal">
+            <div class="modal-content">
+                <button class="menu-btn" onclick="closeHeaderMenu()"><i class="fa-solid fa-xmark"></i></button>
+                <a href="#inicio">Início</a>
+                <a href="#quem-somos">Quem Somos</a>
+                <a href="#metodologia">Metodologia</a>
+                <a href="#clientes">Clientes</a>
+            </div>
+        </div>
+
+
+        <div id="filterModal" class="modal">
+            <div class="modal-content">
+                <h3>Filtros</h3>
+                <input type="text" id="search-nameMobile" placeholder="Procurar por nome" onkeyup="mobileFilterTable()">
+                <hr />
+                <select id="search-sectorMobile" onchange="filterTableMobile()">
+                    <option value="">Setor</option>
+                    <option value="Almoxarifado">Almoxarifado</option>
+                    <option value="Boticário">Boticário</option>
+                    <option value="Comercial">Comercial</option>
+                    <option value="Compras">Compras</option>
+                    <option value="Corte">Corte</option>
+                    <option value="Custo">Custo</option>
+                    <option value="Desenvolvimento">Desenvolvimento</option>
+                    <option value="Departamento Pessoal">Departamento Pessoal</option>
+                    <option value="Ecommerce">Ecommerce</option>
+                    <option value="Estilo">Estilo</option>
+                    <option value="Estoque">Estoque</option>
+                    <option value="Expedição">Expedição</option>
+                    <option value="Ficha">Ficha</option>
+                    <option value="Financeiro">Financeiro</option>
+                    <option value="Fiscal">Fiscal</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Modelagem">Modelagem</option>
+                    <option value="PPCP">PPCP</option>
+                    <option value="Qualidade">Qualidade</option>
+                    <option value="TI">TI</option>
+                    <option value="Recepção">Recepção</option>
+                    <option value="Transporte">Transporte</option>
+                </select>
+                <hr />
+                <input type="text" id="search-ramalMobile" placeholder="Procurar por ramal"
+                    onkeyup="filterTableMobile()">
+                <hr />
+                <input type="text" id="search-emailMobile" placeholder="Procurar por email"
+                    onkeyup="filterTableMobile()">
+                <hr />
+                <input type="text" id="search-phoneMobile" placeholder="Procurar por telefone"
+                    onkeyup="filterTableMobile()">
+                <button onclick="closeHeaderFilter()">Buscar</button>
+            </div>
+        </div>
+
+    </header>
+
+    <div class="sidebar">
         <h3>Filtros</h3>
         <input type="text" id="search-name" placeholder="Procurar por nome" onkeyup="filterTable()">
         <hr />
@@ -45,29 +121,29 @@
         <input type="text" id="search-email" placeholder="Procurar por email" onkeyup="filterTable()">
         <hr />
         <input type="text" id="search-phone" placeholder="Procurar por telefone" onkeyup="filterTable()">
-      </div>
+    </div>
 
-  <div class="container">
+    <div class="container">
         <div class="content">
-          <h2>Lista de Contatos</h2>
-          <table>
-              <thead>
-                  <tr>
-                      <th onclick="sortTable(0)">Nome <span class="sort-icon">⮃</span></th>
-                      <th onclick="sortTable(1)">Setor <span class="sort-icon">⮃</span></th>
-                      <th onclick="sortTable(2)">Ramal <span class="sort-icon">⮃</span></th>
-                      <th onclick="sortTable(3)">Email <span class="sort-icon">⮃</span></th>
-                      <th onclick="sortTable(4)">Telefone <span class="sort-icon">⮃</span></th>
-                  </tr>
-              </thead>
-              <tbody id="table-body">
-              </tbody>
-          </table>
-          <h4>Caso não tenha encontrado o contato desejado entre em contato com a recepcionista</h4>
+            <h2>Lista de Contatos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th onclick="sortTable(0)">Nome <span class="sort-icon">⮃</span></th>
+                        <th onclick="sortTable(1)">Setor <span class="sort-icon">⮃</span></th>
+                        <th onclick="sortTable(2)">Ramal <span class="sort-icon">⮃</span></th>
+                        <th onclick="sortTable(3)">Telefone <span class="sort-icon">⮃</span></th>
+                        <th onclick="sortTable(4)">E-mail <span class="sort-icon">⮃</span></th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                </tbody>
+            </table>
+            <h4>Caso não tenha encontrado o contato desejado entre em contato com a recepcionista</h4>
         </div>
-      </div>
+    </div>
 
-      <div id="loginModal" class="modal">
+    <div id="loginModal" class="modal">
         <div class="modal-content">
             <h2>Login</h2>
             <input type="text" id="login" placeholder="Login">
@@ -76,7 +152,7 @@
             <button onclick="validateLogin()">Entrar</button>
         </div>
     </div>
-    
+
     <div id="addContactModal" class="modal">
         <div class="modal-content">
             <h2>Adicionar Contato</h2>
@@ -117,58 +193,83 @@
         <div class="footer-container">
             <div class="footer-section">
                 <h3>alterar</h3>
-                    <ul>
-                        <li><a href="#"></a></li>
-                        <li><a href="#"></a></li>
-                        <li><a href="#"></a></li>
-                        <li><a href="#"></a></li>
-                </div>
+                <ul>
+                </ul>
+            </div>
 
-                <div class="footer-section">
-                    <h3>Ajuda</h3>
-                        <ul>
-                            <li><a href="#">Dúvidas Gerais</a></li>
-                            <li><a href="https://chamados.suport.cloud" target="_blank">Abra seu Chamado</a></li>
-                            <li><a href="https://wa.me/554498343132">Fale Conosco</a></li>
-                            <li><a href="#"></a></li>
-                    </div>
+            <div class="footer-section">
+                <h3>Ajuda</h3>
+                <ul>
+                    <li><a href="#">Dúvidas Gerais</a></li>
+                    <li><a href="https://chamados.suport.cloud" target="_blank">Abra seu Chamado</a></li>
+                    <li><a href="https://wa.me/554498343132">Fale Conosco</a></li>
+                </ul>
+            </div>
 
-                    <div class="footer-section">
-                        <h3>Sobre Nós</h3>
-                            <ul>
-                                <li><a href="#">Lista de Contatos</a></li>
-                                <li><a href="#">Propósito</a></li>
-                                <li><a href="#">Sobre a PL Indústria de Confecções</a></li>
-                                <li><a href="#"></a></li>
-                        </div>
+            <div class="footer-section">
+                <h3>Sobre Nós</h3>
+                <ul>
+                    <li><a href="../../Lista-Contatos/src/index.html" target="_blank">Lista de Contatos</a></li>
+                    <li><a href="../../Proposito/index.html" target="_blank">Propósito</a></li>
+                    <li><a href="#">Sobre a PL Indústria de Confecções</a></li>
+                </ul>
+            </div>
 
-                        <div class="footer-section">
-                            <h3 onclick="openLoginModal()" style="cursor:pointer">Admin</h3>
-                            <ul>
-                                <li><a href="#">
-                                    <button class="add-button hidden" onclick="openAddContactModal()"><img src="https://raw.githubusercontent.com/gabrielbelloo/Lista-Contatos/38648abf1ce74093ef96cb28da977411f4591637/img/add_user.png"></img></button></a></li>
-                                <li><a href="#"></a></li>
-                                <li><a href="#"></a></li>
-                            </ul>
+            <div class="footer-section">
+                <h3 onclick="openLoginModal()" style="cursor:pointer">Admin</h3>
+                <ul>
+                    <button class="add-button hidden" onclick="openAddContactModal()"><img
+                            src="https://raw.githubusercontent.com/gabrielbelloo/Lista-Contatos/38648abf1ce74093ef96cb28da977411f4591637/img/add_user.png"></img></button></a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="select-container">
+                <hr />
+                <select id="footer-select">
+                    <option value="">AJUDA</option>
+                    <option value="DÚVIDAS GERAIS">DÚVIDAS GERAIS</option>
+                    <option value="ABRA SEU CHAMADO"><a href="https://chamados.suport.cloud" target="_blank">ABRA SEU
+                            CHAMADO</a></option>
+                    <option value="FALE CONOSCO">FALE CONOSCO</option>
+                </select>
+                <hr />
+                <select id="footer-select">
+                    <option value="">SOBRE NÓS</option>
+                    <option value="LISTA DE CONTATOS">LISTA DE CONTATOS</option>
+                    <option value="PROPOSITO">PROPOSITO</option>
+                    <option value="SOBRE A PL INDÚSTRIA DE CONFECÇÕES">SOBRE A PL INDÚSTRIA DE CONFECÇÕES</option>
+                </select>
+                <hr />
+                <select id="footer-select">
+                    <option value="OUTRAS APLICAÇÕES">OUTRAS APLICAÇÕES</option>
+                </select>
+
+            </div>
+
+            <hr />
+
+            <div class="footer-subsection">
+                <a href="https://www.google.com/maps/place/GRUPO+P.L.+Confec%C3%A7%C3%B5es/@-23.674223,-52.637034,16z/data=!4m6!3m5!1s0x94ed59eac5af7daf:0x7672819b2059c59f!8m2!3d-23.6742231!4d-52.6370337!16s%2Fg%2F1v26n85r?hl=pt-BR&entry=ttu&g_ep=EgoyMDI1MDIxMi4wIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D"
+                    target="_blank">Brasil</a>
+                <a href="https://politicadeprivacidadeplconfeccoesalterar.com.br" target="_blank">Políticas de
+                    Privacidade</a>
+                <a href="https://termosdeusoplconfeccoesalterar.com.br" target="_blank">Termos de Uso</a>
+            </div>
+
+            <div class="footer-subsection" styles="align-items: right">
+                <p>Copyright © 2025 CONFECCOES PL. Todos os direitos reservados. P. L. INDUSTRIA DE CONFECCOES LTDA -
+                    CNPJ: 07.853.960/0001-43</p>
+                <p>Avenida America, 639 - Jd. Alto da Cidade - CEP 87205-280 - Cianorte - PR</p>
+            </div>
+
 
 
         </div>
-        
-        <hr />
+    </footer>
 
-        <div class="footer-subsection">
-            <a href="https://www.google.com/maps/place/GRUPO+P.L.+Confec%C3%A7%C3%B5es/@-23.674223,-52.637034,16z/data=!4m6!3m5!1s0x94ed59eac5af7daf:0x7672819b2059c59f!8m2!3d-23.6742231!4d-52.6370337!16s%2Fg%2F1v26n85r?hl=pt-BR&entry=ttu&g_ep=EgoyMDI1MDIxMi4wIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D" target="_blank">Brasil</a>
-            <a href="https://politicadeprivacidadeplconfeccoesalterar.com.br" target="_blank">Políticas de Privacidade</a>
-            <a href="https://termosdeusoplconfeccoesalterar.com.br" target="_blank">Termos de Uso</a>
-        </div>
-
-        <div class="footer-subsection">
-            <p>© 2025 CONFECCOES PL. Todos os direitos reservados. P. L. INDUSTRIA DE CONFECCOES LTDA - CNPJ: 07.853.960/0001-43<br>Avenida America, 639 - Jd. Alto da Cidade - CEP 87205-280 - Cianorte - PR</p>
-        </div>
-
-        </div>
-      </footer>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>

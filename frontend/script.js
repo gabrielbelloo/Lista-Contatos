@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function fetchContatos() {
     try {
-        const response = await fetch('http://10.1.2.248:3001/contatos');
+        const response = await fetch('https://contatos.plconfeccoes.com.br/api/contatos');
         
         if (!response.ok) {
             throw new Error('Erro ao buscar contatos');
@@ -67,11 +67,10 @@ async function fetchContatos() {
                 <td>${contato.nome}</td>
                 <td>${contato.setor}</td>
                 <td>${contato.ramal}</td>
-                <td>${contato.email} <a href="mailto:${contato.email}"><i class="fa-solid fa-envelope"></a></i></td>
                 <td>${contato.telefone} <a href="https://wa.me/55${formatPhoneNumber(contato.telefone)}"><i class="fa-brands fa-whatsapp"></a></i>
                     <button class="edit-button hidden" onclick="editContact('${contato.id}')"><i class="fa-solid fa-pen-to-square"></i></button>
                     <button class="delete-button hidden" onclick="deleteContact('${contato.id}')"><i class="fa-solid fa-trash"></i></button></td>
-
+                <td>${contato.email} <a href="mailto:${contato.email}"><i class="fa-solid fa-envelope"></a></i></td>
             `;
             tableBody.appendChild(row);
         });
@@ -94,7 +93,7 @@ async function editContact(id) {
     }
 
     try {
-        const response = await fetch(`http://10.1.2.248:3001/contatos/${id}`, {
+        const response = await fetch(`https://contatos.plconfeccoes.com.br/api/contatos/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -128,7 +127,7 @@ async function deleteContact(id) {
     }
 
     try {
-        const response = await fetch(`http://10.1.2.248:3001/contatos/${id}`, {
+        const response = await fetch(`https://contatos.plconfeccoes.com.br/api/contatos/${id}`, {
             method: 'DELETE',
         });
 
@@ -169,7 +168,7 @@ async function addContact() {
     }
 
     try {
-        const response = await fetch('http://10.1.2.248:3001/contatos', {
+        const response = await fetch('https://contatos.plconfeccoes.com.br/api/contatos', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -201,7 +200,7 @@ async function addContact() {
 
 async function checkEmailExists(email) {
     try {
-        const response = await fetch(`http://10.1.2.248:3001/contatos?email=${email}`);
+        const response = await fetch(`https://contatos.plconfeccoes.com.br/api/contatos?email=${email}`);
         const contatos = await response.json();
 
         return contatos.some(contato => contato.email === email);
