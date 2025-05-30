@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -153,6 +154,20 @@
             <input type="password" id="password" placeholder="Senha">
             <p id="errorMessage" class="error-message"></p>
             <button onclick="validateLogin()">Entrar</button>
+        </div>
+    </div>
+
+    <div id="contactCard" class="modal">
+        <div class="card-content">
+
+            <div style="display: flex;justify-content: space-between;">
+                <h2 id="contactName"></h2><i class="fa-solid fa-xmark" onclick="closeContactCard()"></i>
+            </div>
+
+            <p id="contactSector" style="margin-bottom: 3vh;margin-top:0;"></p>
+            <p id="contactRamal"></p>
+            <p id="contactEmail" style="cursor: pointer;"></p>
+            <p id="contactPhone" style="cursor: pointer;"></p>
         </div>
     </div>
 

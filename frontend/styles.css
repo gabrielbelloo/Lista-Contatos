@@ -182,6 +182,7 @@ th {
 }
 
 tr {
+    cursor: pointer;
     font-size: 1.7vh;
     background: rgb(0,0,0);
     background: linear-gradient(90deg, rgba(0,0,0,0.87) 0%, rgba(38,38,38,0.9) 50%, rgba(0,0,0,0.87) 100%);
@@ -322,6 +323,69 @@ tr:hover td {
 
 .editModal-content button:hover {
     background-color: #1a1a1a;
+}
+
+#contactCard {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.card-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    padding: 3.5vh;
+    width: 22%;
+    height: 26%;
+    text-align: left;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-content p {
+    font-size: 1.8vh;
+    margin-top: 0.8vh;
+    text-decoration: none;
+    color: #1a1a1a;
+}
+
+.card-content a{
+    font-size: 1.8vh;
+    text-decoration: none;
+    color: #1a1a1a;
+}
+
+.card-content h2 {
+    text-align: start;
+    font-size: 3.1vh;
+}
+
+.card-content .fa-whatsapp, .card-content .fa-envelope, .card-content .fa-phone{
+    align-items: flex-end;
+    justify-content: center;
+    text-align: center;
+    font-size: 2.1vh;
+    float: left;
+    margin-right: 1vh;
+    cursor: default;
+    margin-top: 0.4vh;
+}
+
+.fa-xmark{
+    font-size: 1.5em;
+    color: #111111;
+    cursor: pointer;
+    display: block;
+    text-align: right;
 }
 
 .changePsswd button {
