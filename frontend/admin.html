@@ -7,7 +7,7 @@
     <script src="https://kit.fontawesome.com/cda2098154.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" media="print" href="print.css" />
-    <title>Lista de Contatos</title>
+    <title>Lista de Contatos - Admin</title>
 </head>
 
 <body>
@@ -32,7 +32,7 @@
     </header>
 
     <div class="sidebar">
-        <h3>Filtros</h3>
+        <h3 style="float: inline-start;">Filtros</h3>
         <input type="text" id="search-name" placeholder="Procurar por nome" onkeyup="filterTable()">
         <hr />
         <select id="search-sector" onchange="filterTable()">
@@ -66,6 +66,9 @@
         <input type="text" id="search-email" placeholder="Procurar por email" onkeyup="filterTable()">
         <hr />
         <input type="text" id="search-phone" placeholder="Procurar por telefone" onkeyup="filterTable()">
+
+        <button onclick="openAddContactModal()">Adicionar Contato</button>
+            
     </div>
 
     <div class="container">
@@ -99,6 +102,42 @@
             <p id="contactRamal"></p>
             <p id="contactEmail" style="cursor: pointer;"></p>
             <p id="contactPhone" style="cursor: pointer;"></p>
+        </div>
+    </div>
+
+    <div id="addContactModal" class="modal">
+        <div class="modal-content">
+            <h2>Adicionar Contato</h2>
+            <input type="text" id="newName" placeholder="Nome" required>
+            <select id="newSector">
+                <option value="">Setor</option>
+                <option value="Almoxarifado">Almoxarifado</option>
+                <option value="Boticário">Boticário</option>
+                <option value="Comercial">Comercial</option>
+                <option value="Compras">Compras</option>
+                <option value="Corte">Corte</option>
+                <option value="Custo">Custo</option>
+                <option value="Desenvolvimento">Desenvolvimento</option>
+                <option value="Departamento Pessoal">Departamento Pessoal</option>
+                <option value="Ecommerce">Ecommerce</option>
+                <option value="Estilo">Estilo</option>
+                <option value="Estoque">Estoque</option>
+                <option value="Expedição">Expedição</option>
+                <option value="Ficha">Ficha</option>
+                <option value="Financeiro">Financeiro</option>
+                <option value="Fiscal">Fiscal</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Modelagem">Modelagem</option>
+                <option value="PPCP">PPCP</option>
+                <option value="Qualidade">Qualidade</option>
+                <option value="TI">TI</option>
+                <option value="Transporte">Transporte</option>
+            </select>
+            <input type="text" id="newRamal" maxlenght="3" placeholder="Ramal" required>
+            <input type="text" id="newEmail" placeholder="Email" required>
+            <input type="text" id="newPhone" maxlenght="17" placeholder="Telefone" required>
+            <button onclick="addContact()">Adicionar</button>
+            <button onclick="closeAddContactModal()">Cancelar</button>
         </div>
     </div>
 
@@ -154,6 +193,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="admin.js"></script>
 
 </body>
 
