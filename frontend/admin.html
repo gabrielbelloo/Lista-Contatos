@@ -32,10 +32,10 @@
     </header>
 
     <div class="sidebar">
-        <h3 style="float: inline-start;">Filtros</h3>
-        <input type="text" id="search-name" placeholder="Procurar por nome" onkeyup="filterTable()">
+        <h3>Filtros</h3>
+        <input type="text" id="search-name" class="input-default" placeholder="Procurar por nome" onkeyup="filterTable()">
         <hr />
-        <select id="search-sector" onchange="filterTable()">
+        <select id="search-sector" class="input-default" onchange="filterTable()">
             <option value="">Setor</option>
             <option value="Almoxarifado">Almoxarifado</option>
             <option value="Boticário">Boticário</option>
@@ -61,13 +61,13 @@
             <option value="Transporte">Transporte</option>
         </select>
         <hr />
-        <input type="text" id="search-ramal" placeholder="Procurar por ramal" onkeyup="filterTable()">
+        <input type="text" id="search-ramal" class="input-default" placeholder="Procurar por ramal" onkeyup="filterTable()">
         <hr />
-        <input type="text" id="search-email" placeholder="Procurar por email" onkeyup="filterTable()">
+        <input type="text" id="search-email" class="input-default" placeholder="Procurar por email" onkeyup="filterTable()">
         <hr />
-        <input type="text" id="search-phone" placeholder="Procurar por telefone" onkeyup="filterTable()">
+        <input type="text" id="search-phone" class="input-default" placeholder="Procurar por telefone" onkeyup="filterTable()">
 
-        <button onclick="openAddContactModal()">Adicionar Contato</button>
+        <button class="btn" onclick="openAddContactModal()">Adicionar Contato</button>
 
 
     </div>
@@ -109,11 +109,11 @@
     </div>
 
     <div id="addContactModal" class="modal">
-        <div class="modal-content">
+        <div class="modal-box">
             <h2>Adicionar Contato</h2>
-            <input type="text" id="newName" placeholder="Nome" required>
+            <input type="text" id="newName" class="input-default" placeholder="Nome" required>
             <hr />
-            <select id="newSector">
+            <select id="newSector" class="input-default">
                 <option value="">Setor</option>
                 <option value="Almoxarifado">Almoxarifado</option>
                 <option value="Boticário">Boticário</option>
@@ -138,30 +138,30 @@
                 <option value="Transporte">Transporte</option>
             </select>
             <hr />
-            <input type="text" id="newRamal" maxlenght="3" placeholder="Ramal" required>
+            <input type="text" id="newRamal" class="input-default" maxlenght="3" placeholder="Ramal" required>
             <hr />
-            <input type="text" id="newEmail" placeholder="Email" required>
+            <input type="text" id="newEmail" class="input-default" placeholder="Email" required>
             <hr />
-            <input type="text" id="newPhone" maxlenght="17" placeholder="Telefone" required>
+            <input type="text" id="newPhone" class="input-default" maxlenght="17" placeholder="Telefone" required>
             <hr />
-            <input type="text" id="newSecondaryEmail" placeholder="Email Secundário" required>
+            <input type="text" id="newSecondaryEmail" class="input-default" placeholder="Email Secundário" required>
             <hr />
-            <input type="text" id="newSecondaryPhone" maxlenght="17" placeholder="Telefone Secundário" required>
-            <button onclick="addContact()">Adicionar</button>
-            <button onclick="closeAddContactModal()">Cancelar</button>
+            <input type="text" id="newSecondaryPhone" class="input-default" maxlenght="17" placeholder="Telefone Secundário" required>
+            <button class="btn" onclick="addContact()" style="margin-right: 2em;">Adicionar</button>
+            <button class="btn" onclick="closeAddContactModal()" style="margin-left: 2em;">Cancelar</button>
         </div>
     </div>
 
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-section">
-                <h3>alterar</h3>
+                <h3 style="margin-left: 0;">alterar</h3>
                 <ul>
                 </ul>
             </div>
 
             <div class="footer-section">
-                <h3>Ajuda</h3>
+                <h3 style="margin-left: 0;">Ajuda</h3>
                 <ul>
                     <li><a href="https://chamados.suport.cloud" target="_blank">Abra seu Chamado</a></li>
                     <li><a href="https://wa.me/554498343132" target="_blank">Suporte T.I</a></li>
@@ -169,16 +169,12 @@
             </div>
 
             <div class="footer-section">
-                <h3>Sobre Nós</h3>
+                <h3 style="margin-left: 0;">Sobre Nós</h3>
                 <ul>
                     <li><a href="../../Lista-Contatos/src/index.html" target="_blank">Lista de Contatos</a></li>
                     <li><a href="https://plconfeccoes.com.br" target="_blank">Sobre a PL Indústria de Confecções</a>
                     </li>
                 </ul>
-            </div>
-
-            <div class="footer-section">
-                <h3>Admin</h3>
             </div>
 
             <hr />
@@ -191,13 +187,11 @@
                 <a href="https://termosdeusoplconfeccoesalterar.com.br" target="_blank">Termos de Uso</a>
             </div>
 
-            <div class="footer-subsection" styles="align-items: right">
-                <p>Copyright © 2025 CONFECCOES PL. Todos os direitos reservados. P. L. INDUSTRIA DE CONFECCOES LTDA -
+            <div class="footer-subsection">
+                <p style="float: right;">Copyright © 2025 CONFECCOES PL. Todos os direitos reservados. P. L. INDUSTRIA DE CONFECCOES LTDA -
                     CNPJ: 07.853.960/0001-43</p>
-                <p>Avenida America, 639 - Jd. Alto da Cidade - CEP 87205-280 - Cianorte - PR</p>
+                <p style="float: right;">Avenida America, 639 - Jd. Alto da Cidade - CEP 87205-280 - Cianorte - PR</p>
             </div>
-
-
 
         </div>
     </footer>

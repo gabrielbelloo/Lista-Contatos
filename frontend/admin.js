@@ -147,7 +147,3 @@ function showAdminButtons() {
         adminTd[i].removeAttribute("hidden");
     }
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-
-});
