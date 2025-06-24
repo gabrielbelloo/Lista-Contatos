@@ -12,6 +12,8 @@ async function addContact() {
     const newRamal = document.getElementById('newRamal').value;
     const newPhone = document.getElementById('newPhone').value;
     const newEmail = document.getElementById('newEmail').value;
+    const newSecondaryPhone = document.getElementById('newSecondaryPhone').value;
+    const newSecondaryEmail = document.getElementById('newSecondaryEmail').value;
 
 
     if (!newName || !newSector || !newRamal || !newEmail || !newPhone) {
@@ -37,6 +39,8 @@ async function addContact() {
                 ramal: newRamal,
                 email: newEmail,
                 telefone: newPhone,
+                email2: newSecondaryEmail,
+                telefone2: newSecondaryPhone,
             }),
         });
 
@@ -138,9 +142,12 @@ async function deleteContact(id) {
 }
 
 function showAdminButtons() {
-        document.querySelectorAll('button').forEach(button => button.classList.remove('hidden'));
+    const adminTd = document.getElementsByClassName('admin-td');
+    for (let i = 0; i < adminTd.length; i++) {
+        adminTd[i].removeAttribute("hidden");
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    showAdminButtons();
+
 });

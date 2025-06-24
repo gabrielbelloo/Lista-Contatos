@@ -68,7 +68,8 @@
         <input type="text" id="search-phone" placeholder="Procurar por telefone" onkeyup="filterTable()">
 
         <button onclick="openAddContactModal()">Adicionar Contato</button>
-            
+
+
     </div>
 
     <div class="container">
@@ -82,6 +83,8 @@
                         <th onclick="sortTable(2)">Ramal <span class="sort-icon">⮃</span></th>
                         <th onclick="sortTable(3)">Telefone <span class="sort-icon">⮃</span></th>
                         <th onclick="sortTable(4)">E-mail <span class="sort-icon">⮃</span></th>
+                        <th class="admin-td" onclick="sortTable(4)"><i class="fa-solid fa-user-tie"></i></th>
+                        <th class="admin-td" onclick="sortTable(4)"><i class="fa-solid fa-screwdriver-wrench"></i></th>
                     </tr>
                 </thead>
                 <tbody id="table-body">
@@ -109,6 +112,7 @@
         <div class="modal-content">
             <h2>Adicionar Contato</h2>
             <input type="text" id="newName" placeholder="Nome" required>
+            <hr />
             <select id="newSector">
                 <option value="">Setor</option>
                 <option value="Almoxarifado">Almoxarifado</option>
@@ -133,9 +137,16 @@
                 <option value="TI">TI</option>
                 <option value="Transporte">Transporte</option>
             </select>
+            <hr />
             <input type="text" id="newRamal" maxlenght="3" placeholder="Ramal" required>
+            <hr />
             <input type="text" id="newEmail" placeholder="Email" required>
+            <hr />
             <input type="text" id="newPhone" maxlenght="17" placeholder="Telefone" required>
+            <hr />
+            <input type="text" id="newSecondaryEmail" placeholder="Email Secundário" required>
+            <hr />
+            <input type="text" id="newSecondaryPhone" maxlenght="17" placeholder="Telefone Secundário" required>
             <button onclick="addContact()">Adicionar</button>
             <button onclick="closeAddContactModal()">Cancelar</button>
         </div>
@@ -152,9 +163,8 @@
             <div class="footer-section">
                 <h3>Ajuda</h3>
                 <ul>
-                    <li><a href="#">Dúvidas Gerais</a></li>
                     <li><a href="https://chamados.suport.cloud" target="_blank">Abra seu Chamado</a></li>
-                    <li><a href="https://wa.me/554498343132">Fale Conosco</a></li>
+                    <li><a href="https://wa.me/554498343132" target="_blank">Suporte T.I</a></li>
                 </ul>
             </div>
 
@@ -162,8 +172,8 @@
                 <h3>Sobre Nós</h3>
                 <ul>
                     <li><a href="../../Lista-Contatos/src/index.html" target="_blank">Lista de Contatos</a></li>
-                    <li><a href="../../Proposito/index.html" target="_blank">Propósito</a></li>
-                    <li><a href="#">Sobre a PL Indústria de Confecções</a></li>
+                    <li><a href="https://plconfeccoes.com.br" target="_blank">Sobre a PL Indústria de Confecções</a>
+                    </li>
                 </ul>
             </div>
 

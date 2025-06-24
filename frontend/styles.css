@@ -193,34 +193,53 @@ tr:hover td {
 
 .modal-content {
   background-color: white;
-  padding: 20px;
+  padding: 2em;
   border-radius: 10px;
-  width: 300px;
+  width: 50vh;
   text-align: center;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.modal-content input,
-.modal-content select {
-  background-color: #ffffff;
+.modal-content h2 {
   width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  color: #777777;
-  box-shadow: none;
+  margin-bottom: 1.5em;
+  margin-left: 0.1vh;
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #333;
+}
+
+.modal-content input,
+.modal-content select{
+  width: 100%;
+  padding: 1.8vh 1vh;
+  border-radius: 0.6vh;
+  border: 0;
+  font-size: 0.9em;
+}
+
+.modal-content input:focus,
+.modal-content select:focus {
+  background-color: #fafafa;
+  outline: none;
+}
+
+.modal-content input::placeholder,
+.modal-content select {
+  color: #111111;
+  cursor: pointer;
 }
 
 .modal-content button {
   background-color: #0f0f0f;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 1em 2em;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 1.5em;
   font-weight: bold;
+  font-size: 0.9em;
 }
 
 .modal-content button:hover {
@@ -362,10 +381,14 @@ tr:hover td {
 }
 
 .admin-button {
-  display: none;
   background-color: transparent;
   border: none;
-  float: right;
+  float: inline-start;
+}
+
+.admin-td {
+  cursor: default;
+  text-align: center;
 }
 
 header {
@@ -559,4 +582,8 @@ footer img {
 .logo span {
   font-size: 14px;
   color: #888;
+}
+
+.hidden{
+  display: none;
 }

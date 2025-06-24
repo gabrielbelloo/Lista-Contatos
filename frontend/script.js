@@ -66,10 +66,12 @@ async function fetchContatos() {
                 <td>${contato.nome}</td>
                 <td>${contato.setor}</td>
                 <td>${contato.ramal}</td>
-                <td>${contato.telefone} <a href="https://wa.me/55${formatPhoneNumber(contato.telefone)}"><i class="fa-brands fa-whatsapp"></a></i>
-                    <button class="admin-button hidden" onclick="editContact('${contato.id}')"><i class="fa-solid fa-pen-to-square"></i></button>
-                    <button class="admin-button hidden" onclick="deleteContact('${contato.id}')"><i class="fa-solid fa-trash"></i></button></td>
+                <td>${contato.telefone} <a href="https://wa.me/55${formatPhoneNumber(contato.telefone)}"><i class="fa-brands fa-whatsapp"></a></i></td>
                 <td>${contato.email} <a href="mailto:${contato.email}"><i class="fa-solid fa-paper-plane"></i></a></td>
+
+                <td class="admin-td" hidden onclick="editContact('${contato.id}')"><button class="admin-button"><i class="fa-solid fa-pen-to-square"></i></button></td>
+
+                <td class="admin-td" hidden onclick="deleteContact('${contato.id}')"><button class="admin-button"><i class="fa-solid fa-trash"></i></button></td>
             `;
             tableBody.appendChild(row);
             row.addEventListener('click', () => openContactCard(contato));
@@ -78,6 +80,8 @@ async function fetchContatos() {
         console.error('Erro ao buscar contatos:', err);
         alert('Erro ao buscar contatos. Verifique o console para mais detalhes.');
     }
+
+        showAdminButtons();
 }
 
 function openContactCard(contato) {
