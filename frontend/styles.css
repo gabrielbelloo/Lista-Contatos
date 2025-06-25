@@ -143,6 +143,11 @@ footer p {
   border-top: 2px solid #737373;
 }
 
+.social-media{
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+}
+
 .container h2 {
   font-size: 2.1em;
 }
