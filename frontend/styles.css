@@ -395,9 +395,11 @@ tr:hover td {
   float: inline-start;
 }
 
-.admin-td {
-  cursor: default;
+
+
+.align-center {
   text-align: center;
+  cursor: default;
 }
 
 .fa-print {
@@ -448,11 +450,11 @@ header a.dimmed {
 }
 
 .fa-trash,
-.fa-pen-to-square {
+.fa-pen-to-square,
+.fa-star {
   font-size: 1.2em;
   cursor: pointer;
   text-decoration: none;
-  color: #1a1a1a;
   margin: 0.5vh;
   margin-top: 0.6vh;
   transition: background-color 0.3s ease;

@@ -1,3 +1,44 @@
+async function fetchContatos() {
+    try {
+        const response = await fetch('https://contatos.plconfeccoes.com.br/api/contatos');
+
+        if (!response.ok) {
+            throw new Error('Erro ao buscar contatos');
+        }
+
+        const contatos = await response.json();
+
+        const tableBody = document.getElementById('table-body');
+
+        tableBody.innerHTML = '';
+
+        contatos.data.forEach(contato => {
+            const row = document.createElement('tr');
+            row.dataset.id = contato.id;
+            row.innerHTML = `
+                <td class="align-center"><i class="fa-regular fa-star favorite-icon" data-id="${contato.id}" onclick="toggleFavorite(event, '${contato.id}')"></i></td>
+                <td>${contato.nome}</td>
+                <td>${contato.setor}</td>
+                <td>${contato.ramal}</td>
+                <td>${contato.telefone} <a href="https://wa.me/55${formatPhoneNumber(contato.telefone)}"><i class="fa-brands fa-whatsapp"></a></i></td>
+                <td>${contato.email} <a href="mailto:${contato.email}"><i class="fa-solid fa-paper-plane"></i></a></td>
+
+                <td class="admin-td align-center" hidden><button class="admin-button"><i class="fa-solid fa-pen-to-square" onclick="editContact('${contato.id}')"></i></button></td>
+
+                <td class="admin-td align-center" hidden><button class="admin-button"><i class="fa-solid fa-trash" onclick="deleteContact('${contato.id}')"></i></button></td>
+            `;
+            tableBody.appendChild(row);
+            row.addEventListener('click', () => openContactCard(contato));
+        });
+    } catch (err) {
+        console.error('Erro ao buscar contatos:', err);
+        alert('Erro ao buscar contatos. Verifique o console para mais detalhes.');
+    }
+
+    showAdminButtons();
+    updateFavoriteIcons();
+}
+
 function filterTable() {
     let nameInput = document.getElementById("search-name").value.toLowerCase();
     let sectorInput = document.getElementById("search-sector").value.toLowerCase();
@@ -41,57 +82,14 @@ function sortTable(columnIndex) {
     table.dataset.order = ascending ? "asc" : "desc";
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    fetchContatos();
-});
-
-async function fetchContatos() {
-    try {
-        const response = await fetch('https://contatos.plconfeccoes.com.br/api/contatos');
-
-        if (!response.ok) {
-            throw new Error('Erro ao buscar contatos');
-        }
-
-        const contatos = await response.json();
-
-        const tableBody = document.getElementById('table-body');
-
-        tableBody.innerHTML = '';
-
-        contatos.data.forEach(contato => {
-            const row = document.createElement('tr');
-            row.dataset.id = contato.id;
-            row.innerHTML = `
-                <td>${contato.nome}</td>
-                <td>${contato.setor}</td>
-                <td>${contato.ramal}</td>
-                <td>${contato.telefone} <a href="https://wa.me/55${formatPhoneNumber(contato.telefone)}"><i class="fa-brands fa-whatsapp"></a></i></td>
-                <td>${contato.email} <a href="mailto:${contato.email}"><i class="fa-solid fa-paper-plane"></i></a></td>
-
-                <td class="admin-td" hidden onclick="editContact('${contato.id}')"><button class="admin-button"><i class="fa-solid fa-pen-to-square"></i></button></td>
-
-                <td class="admin-td" hidden onclick="deleteContact('${contato.id}')"><button class="admin-button"><i class="fa-solid fa-trash"></i></button></td>
-            `;
-            tableBody.appendChild(row);
-            row.addEventListener('click', () => openContactCard(contato));
-        });
-    } catch (err) {
-        console.error('Erro ao buscar contatos:', err);
-        alert('Erro ao buscar contatos. Verifique o console para mais detalhes.');
-    }
-
-        showAdminButtons();
-}
-
 function openContactCard(contato) {
     document.getElementById('contactCard').style.display = 'flex';
     document.getElementById('contactName').textContent = contato.nome;
     document.getElementById('contactSector').textContent = contato.setor;
 
-    document.getElementById('contactRamal').innerHTML =`<i class="fa-solid fa-phone"></i> <a>${contato.ramal}</a>`;
-    document.getElementById('contactPhone').innerHTML =`<i class="fa-brands fa-whatsapp"></i> <a target="blank" href="https://wa.me/55${formatPhoneNumber(contato.telefone)}">${contato.telefone}</a>`;
-    document.getElementById('contactEmail').innerHTML =`<i class="fa-solid fa-envelope"></i> <a target="blank" href="mailto:${contato.email}">${contato.email}</a>`;
+    document.getElementById('contactRamal').innerHTML = `<i class="fa-solid fa-phone"></i> <a>${contato.ramal}</a>`;
+    document.getElementById('contactPhone').innerHTML = `<i class="fa-brands fa-whatsapp"></i> <a target="blank" href="https://wa.me/55${formatPhoneNumber(contato.telefone)}">${contato.telefone}</a>`;
+    document.getElementById('contactEmail').innerHTML = `<i class="fa-solid fa-envelope"></i> <a target="blank" href="mailto:${contato.email}">${contato.email}</a>`;
 }
 
 function closeContactCard() {
@@ -103,6 +101,38 @@ function closeContactCard() {
     document.getElementById('contactEmail').innerHTML = '';
 }
 
+function toggleFavorite(event, id) {
+    event.stopPropagation();
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const index = favorites.indexOf(id);
+    if (index === -1) {
+        favorites.push(id);
+    } else {
+        favorites.splice(index, 1);
+    }
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    updateFavoriteIcons();
+}
+
+function updateFavoriteIcons() {
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    document.querySelectorAll('.favorite-icon').forEach(icon => {
+        if (favorites.includes(icon.dataset.id)) {
+            icon.classList.add('fa-solid');
+            icon.classList.remove('fa-regular');
+            icon.style.color = 'gold';
+        } else {
+            icon.classList.add('fa-regular');
+            icon.classList.remove('fa-solid');
+            icon.style.color = '';
+        }
+    });
+}
+
 function formatPhoneNumber(phone) {
     return phone.replace(/\D/g, '');
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetchContatos();
+});
