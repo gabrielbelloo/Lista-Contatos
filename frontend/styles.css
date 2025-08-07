@@ -21,7 +21,6 @@ body {
 /* ___LAYOUT STRUCTURE___ */
 .container {
   margin-left: 31.3vh;
-  margin-top: 3.4em;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -42,7 +41,7 @@ body {
   width: 17em;
   background: #ffffff;
   padding: 3.2vh 2.2vh;
-  margin-top: 5.2em;
+  margin-top: 3vh;
   margin-left: 3.2vh;
   color: black;
   overflow-y: auto;
@@ -63,20 +62,12 @@ header {
   position: fixed;
   height: auto;
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
   transition: bottom 0.5s ease;
   z-index: 100;
-}
-
-.header-subsection {
-  display: flex;
-  margin-left: 52px;
-  margin-right: 20px;
-  flex: 1 1 200px;
-  justify-content: center;
-  font-size: 1em;
-  align-items: center;
+  display: none;
 }
 
 .header-buttons {
@@ -101,23 +92,15 @@ footer {
   justify-content: space-between;
 }
 
-footer a {
+footer a, footer p {
   color: #f7f7f7;
   font-size: 1.3vh;
   text-decoration: none;
   transition: color 0.3s;
 }
 
-footer a:hover {
+footer a:hover{
   color: #9d9d9d;
-}
-
-footer p {
-  width: 92%;
-  color: #f7f7f7;
-  font-size: 1.3vh;
-  text-align: right;
-  transition: color 0.3s;
 }
 
 .footer-section ul {
@@ -403,6 +386,11 @@ tr:hover td {
 }
 
 .fa-print {
+  position: absolute;
+  right: 2vw;
+  top: 5vh;
+  color: #0f0f0f;
+  font-size: 2.8vh;
   cursor: pointer;
 }
 

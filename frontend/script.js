@@ -16,7 +16,6 @@ async function fetchContatos() {
             const row = document.createElement('tr');
             row.dataset.id = contato.id;
             row.innerHTML = `
-                <td class="align-center"><i class="fa-regular fa-star favorite-icon" data-id="${contato.id}" onclick="toggleFavorite(event, '${contato.id}')"></i></td>
                 <td>${contato.nome}</td>
                 <td>${contato.setor}</td>
                 <td>${contato.ramal}</td>
@@ -99,34 +98,6 @@ function closeContactCard() {
     document.getElementById('contactRamal').innerHTML = '';
     document.getElementById('contactPhone').innerHTML = '';
     document.getElementById('contactEmail').innerHTML = '';
-}
-
-function toggleFavorite(event, id) {
-    event.stopPropagation();
-    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    const index = favorites.indexOf(id);
-    if (index === -1) {
-        favorites.push(id);
-    } else {
-        favorites.splice(index, 1);
-    }
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-    updateFavoriteIcons();
-}
-
-function updateFavoriteIcons() {
-    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    document.querySelectorAll('.favorite-icon').forEach(icon => {
-        if (favorites.includes(icon.dataset.id)) {
-            icon.classList.add('fa-solid');
-            icon.classList.remove('fa-regular');
-            icon.style.color = 'gold';
-        } else {
-            icon.classList.add('fa-regular');
-            icon.classList.remove('fa-solid');
-            icon.style.color = '';
-        }
-    });
 }
 
 function formatPhoneNumber(phone) {

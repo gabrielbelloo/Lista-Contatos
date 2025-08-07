@@ -12,24 +12,9 @@
 
 <body>
 
-    <header>
-
-        <img class="logo"
-            src="https://lh3.googleusercontent.com/pw/AP1GczNrYe0X3ncpDIiD6wZT2_KJA76oK2veSoXuW9sB4tQ28YGpFm_ePJrBIKDUTF8sSVx_hpSC8azmDUDAwf_38pa98nbj9x2k4Wk17WADFp8rQsD2IBiGESOV6tLj9cpjpxmHM0SMx1nGGTSpRAXd-Bg=w416-h169-s-no-gm?authuser=0"
-            alt="Grupo PL">
-
-        <div class="header-subsection">
-            <a href="#inicio">Início</a>
-            <a href="#quem-somos">Quem Somos</a>
-            <a href="#metodologia">Metodologia</a>
-            <a href="#clientes">Clientes</a>
-        </div>
-
         <div class="header-buttons">
-            <i class="fa-solid fa-print" onclick="window.print()"></i>
-        </div>
 
-    </header>
+        </div>
 
     <sidebar class="sidebar">
         <h3>Filtros</h3>
@@ -57,7 +42,7 @@
             <option value="Modelagem">Modelagem</option>
             <option value="PPCP">PPCP</option>
             <option value="Qualidade">Qualidade</option>
-            <option value="TI">TI</option>
+            <option value="T.I.">T.I.</option>
             <option value="Recepção">Recepção</option>
             <option value="Transporte">Transporte</option>
         </select>
@@ -65,26 +50,26 @@
         <input type="text" id="search-ramal" class="input-default" placeholder="Procurar por ramal"
             onkeyup="filterTable()">
         <hr />
-        <input type="text" id="search-email" class="input-default" placeholder="Procurar por email"
+        <input type="text" id="search-email" class="input-default" placeholder="Procurar por telefone"
             onkeyup="filterTable()">
         <hr />
-        <input type="text" id="search-phone" class="input-default" placeholder="Procurar por telefone"
+        <input type="text" id="search-phone" class="input-default" placeholder="Procurar por email"
             onkeyup="filterTable()">
     </sidebar>
 
     <div class="container">
         <div class="content">
+
             <h2>Lista de Contatos</h2>
+            <i class="fa-solid fa-print" onclick="window.print()"></i>
             <table>
                 <thead>
                     <tr>
-                        <th class="align-center" onclick="addFavorite()"><i class="fa-solid fa-star"
-                                style="margin: 0;"></i><span class="sort-icon">⮃</span></th>
-                        <th onclick="sortTable(1)">Nome <span class="sort-icon">⮃</span></th>
-                        <th onclick="sortTable(2)">Setor <span class="sort-icon">⮃</span></th>
-                        <th onclick="sortTable(3)">Ramal <span class="sort-icon">⮃</span></th>
-                        <th onclick="sortTable(4)">Telefone <span class="sort-icon">⮃</span></th>
-                        <th onclick="sortTable(5)">E-mail <span class="sort-icon">⮃</span></th>
+                        <th onclick="sortTable(0)">Nome <span class="sort-icon">⮃</span></th>
+                        <th onclick="sortTable(1)">Setor <span class="sort-icon">⮃</span></th>
+                        <th onclick="sortTable(2)">Ramal <span class="sort-icon">⮃</span></th>
+                        <th onclick="sortTable(3)">Telefone <span class="sort-icon">⮃</span></th>
+                        <th onclick="sortTable(4)">E-mail <span class="sort-icon">⮃</span></th>
                     </tr>
                 </thead>
                 <tbody id="table-body">
@@ -120,7 +105,7 @@
                 <h3 style="margin-left: 0;">Ajuda</h3>
                 <ul>
                     <li><a href="https://chamados.suport.cloud" target="_blank">Abra seu Chamado</a></li>
-                    <li><a href="https://wa.me/554498343132" target="_blank">Suporte T.I</a></li>
+                    <li><a href="https://wa.me/5544999122751" target="_blank">Suporte T.I</a></li>
                 </ul>
             </div>
 
@@ -128,7 +113,7 @@
                 <h3 style="margin-left: 0;">Sobre Nós</h3>
                 <ul>
                     <li><a href="../../Lista-Contatos/src/index.html" target="_blank">Lista de Contatos</a></li>
-                    <li><a href="https://plconfeccoes.com.br" target="_blank">Sobre a PL Indústria de Confecções</a>
+                    <li><a href="" target="_blank">Sobre a Elipse</a>
                     </li>
                 </ul>
             </div>
@@ -137,7 +122,7 @@
                 <h3 style="margin-left: 0;">Redes Sociais</h3>
 
                 <div class="social-media">
-                    <a href="https://www.facebook.com/grupoplconfeccoes/" target="_blank"><svg
+                    <a href="" target="_blank"><svg
                             data-testid="FacebookIcon" aria-hidden="true" version="1.1"
                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                             fill="currentColor" viewBox="0 0 24 24"
@@ -147,7 +132,7 @@
                             </path>
                         </svg></a>
 
-                    <a href="https://www.instagram.com/grupoplconfeccoes/reels/" target="_blank"><svg
+                    <a href="" target="_blank"><svg
                             data-testid="InstagramIcon" aria-hidden="true" version="1.1"
                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                             fill="currentColor" viewBox="0 0 24 24"
@@ -164,7 +149,7 @@
                         </svg></a>
 
 
-                    <a href="https://www.youtube.com/@grupoplconfeccoes8884/" target="_blank"><svg
+                    <a href="" target="_blank"><svg
                             data-testid="YoutubeIcon" aria-hidden="true" version="1.1"
                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                             fill="currentColor" viewBox="0 0 24 24"
@@ -181,20 +166,13 @@
 
             <hr />
 
-            <div class="footer-subsection">
-                <a href="https://www.google.com/maps/place/GRUPO+P.L.+Confec%C3%A7%C3%B5es/@-23.674223,-52.637034,16z/data=!4m6!3m5!1s0x94ed59eac5af7daf:0x7672819b2059c59f!8m2!3d-23.6742231!4d-52.6370337!16s%2Fg%2F1v26n85r?hl=pt-BR&entry=ttu&g_ep=EgoyMDI1MDIxMi4wIKXMDSoJLDEwMjExNDUzSAFQAw%3D%3D"
+            <div class="footer-subsection" style="width: 100%;display: flex; justify-content: center; gap: 2vw;">
+                <a href=""
                     target="_blank">Brasil</a>
-                <a href="https://politicadeprivacidadeplconfeccoesalterar.com.br" target="_blank">Políticas de
+                <a href="" target="_blank">Políticas de
                     Privacidade</a>
-                <a href="https://termosdeusoplconfeccoesalterar.com.br" target="_blank">Termos de Uso</a>
-            </div>
-
-            <div class="footer-subsection">
-                <p style="float: right;">Copyright © 2025 CONFECCOES PL. Todos os direitos reservados. P. L. INDUSTRIA
-                    DE
-                    CONFECCOES LTDA -
-                    CNPJ: 07.853.960/0001-43</p>
-                <p style="float: right;">Avenida America, 639 - Jd. Alto da Cidade - CEP 87205-280 - Cianorte - PR</p>
+                <a href="" target="_blank">Termos de Uso</a>
+                <a>© 2025 Elipse Todos os direitos reservados</a>
             </div>
 
         </div>
