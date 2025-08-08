@@ -19,5 +19,5 @@ app.use('/contatos', userRoutes);
 app.use(errorHandling);
 
 app.listen(port, () => {
-    console.log(`Servidor rodando em http://10.1.2.248:${port}`);
+    console.log(`Servidor rodando em http://localhost:${port}`);
 });
