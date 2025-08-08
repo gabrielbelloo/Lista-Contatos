@@ -1,7 +1,7 @@
 
 # Lista de Contatos
 
-Este projeto consiste em uma Lista de Contatos desenvolvida com JavaScript, Node.js, Express e PostgreSQL. A aplicação permite visualizar, filtrar, ordenar e interagir com os contatos armazenados no banco de dados.
+Aplicação web para gerenciamento de contatos corporativos, desenvolvida com JavaScript, Node.js, Express e PostgreSQL. A aplicação permite visualizar, filtrar, ordenar e interagir com os contatos armazenados no banco de dados.
 
 
 ## Funcionalidades
@@ -9,6 +9,8 @@ Este projeto consiste em uma Lista de Contatos desenvolvida com JavaScript, Node
 - Sidebar de Filtros: Permite buscar contatos por nome, setor, ramal, email e telefone.
 
 - Ordenação: Os contatos podem ser ordenados por nome, setor, ramal, email e telefone.
+  
+- Exibição em cards: Abre um card com informações detalhadas sobre o contato.
 
 - Integração com Email: Ao clicar no ícone de email, um novo email é aberto automaticamente para o contato selecionado.
 
@@ -24,6 +26,35 @@ Este projeto consiste em uma Lista de Contatos desenvolvida com JavaScript, Node
 **Back-end:** Node.js com Express
 
 **Banco de Dados:** PostgreSQL
+
+
+## Estrutura do Projeto
+
+📁 Lista-Contatos
+ ┣ 📂 backend
+ ┃ ┣ 📂 config
+ ┃ ┃ ┣ 📜 db.js
+ ┃ ┣ 📂 controllers
+ ┃ ┃ ┣ 📜 userController.js
+ ┃ ┣ 📂 middlewares
+ ┃ ┃ ┣ 📜 errorHandler.js
+ ┃ ┣ 📂 models
+ ┃ ┃ ┣ 📜 userModel.js
+ ┃ ┣ 📂 routes
+ ┃ ┃ ┣ 📜 userRoutes.js
+ ┃ ┣ 📜 server.js
+ ┃ ┗ 📜 package.json
+ ┣ 📂 frontend
+ ┃ ┣ 📜 admin.html
+ ┃ ┣ 📜 admin.js
+ ┃ ┣ 📜 index.html
+ ┃ ┣ 📜 script.js
+ ┃ ┣ 📜 style.css
+ ┃ ┗ 📜 print.css
+ ┣ 📂 sql
+ ┃ ┗ 📜 schema.sql
+ ┣ 📜 README.md
+ ┗ 📜 conf.env
 
 
 ## Licença
