@@ -30,31 +30,30 @@ Aplicação web para gerenciamento de contatos corporativos, desenvolvida com Ja
 
 ## Estrutura do Projeto
 
-📁 Lista-Contatos
- ┣ 📂 backend
- ┃ ┣ 📂 config
- ┃ ┃ ┣ 📜 db.js
- ┃ ┣ 📂 controllers
- ┃ ┃ ┣ 📜 userController.js
- ┃ ┣ 📂 middlewares
- ┃ ┃ ┣ 📜 errorHandler.js
- ┃ ┣ 📂 models
- ┃ ┃ ┣ 📜 userModel.js
- ┃ ┣ 📂 routes
- ┃ ┃ ┣ 📜 userRoutes.js
- ┃ ┣ 📜 server.js
- ┃ ┗ 📜 package.json
- ┣ 📂 frontend
- ┃ ┣ 📜 admin.html
- ┃ ┣ 📜 admin.js
- ┃ ┣ 📜 index.html
- ┃ ┣ 📜 script.js
- ┃ ┣ 📜 style.css
- ┃ ┗ 📜 print.css
- ┣ 📂 sql
- ┃ ┗ 📜 schema.sql
- ┣ 📜 README.md
- ┗ 📜 conf.env
+Lista-Contatos
+├── backend
+│   ├── config
+│   │   └── db.js
+│   ├── controllers
+│   │   └── userController.js
+│   ├── middlewares
+│   │   └── errorHandler.js
+│   ├── models
+│   │   └── userModel.js
+│   ├── routes
+│   │   └── userRoutes.js
+│   └── server.js
+├── frontend
+│   ├── admin.html
+│   ├── index.html
+│   ├── script.js
+│   ├── style.css
+│   └── print.css
+├── sql
+│   └── schema.sql
+├── README.md
+├── package.json
+└── conf.env
 
 
 ## Licença
