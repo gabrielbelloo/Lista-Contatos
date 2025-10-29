@@ -78,9 +78,9 @@ export default function Header() {
                 <MagnifyingGlassIcon className="absolute left-3 top-2.5 h-5 w-5 text-gray-400 pointer-events-none" />
                 <Input
                   type="text"
-                  placeholder="      Search"
+                  placeholder="Search"
                   name="full_name"
-                  className="block rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-1 focus:-outline-offset-1 focus:outline-indigo-700 w-60 sm:w-85"
+                  className="block rounded-md bg-white/5 pl-10 pr-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-1 focus:-outline-offset-1 focus:outline-indigo-700 w-60 sm:w-85"
                 />
               </div>
 
