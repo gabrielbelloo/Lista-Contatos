@@ -13,6 +13,7 @@
     "@headlessui/react": "^2.2.9",
     "@heroicons/react": "^2.2.0",
     "@tailwindcss/vite": "^4.1.16",
+    "axios": "^1.13.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.548.0",
     "react": "^18.3.1",
