@@ -22,7 +22,14 @@ const contacts = [
   },
 ];
 
+
+
 export default function ContactsList() {
+  const [contatos, setContatos] = useState([]);
+
+  async function fetchContatos() {
+    
+  }
 
   return (
     <div className="overflow-x-auto">
