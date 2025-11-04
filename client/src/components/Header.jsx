@@ -21,7 +21,7 @@ const navigation = [
   { name: "Dashboard", href: "/dashboard" },
   { name: "Contacts", href: "/contacts" },
   { name: "Departments", href: "/departments" },
-  { name: "Reports", href: "/reports" },
+  { name: "Feedback", href: "/feedback" },
 ];
 
 const user = {

@@ -1,13 +1,37 @@
-export default function ContactForm() {
+import { useState } from "react"
+import { ChevronDown } from "lucide-react";
+
+export default function FeedbackForm() {
+const [phone, setPhone] = useState("");
+
+  const formatPhone = (value) => {
+    const cleaned = value.replace(/\D/g, "");
+    if (cleaned.length <= 2) {
+      return cleaned;
+    } else if (cleaned.length <= 6) {
+      return `(${cleaned.slice(0, 2)}) ${cleaned.slice(2)}`;
+    } else if (cleaned.length <= 10) {
+      return `(${cleaned.slice(0, 2)}) ${cleaned.slice(2, 6)}-${cleaned.slice(6)}`;
+    } else {
+      return `(${cleaned.slice(0, 2)}) ${cleaned.slice(2, 7)}-${cleaned.slice(7, 11)}`;
+    }
+  };
+
+  const handleChange = (e) => {
+    const formatted = formatPhone(e.target.value);
+    setPhone(formatted);
+  };
+
   return (
     <div>
       <div className="mx-auto max-w-2xl text-center">
         <h2 className="text-4xl font-semibold tracking-tight text-balance text-white sm:text-5xl">
-          Entre em Contato
+          Envie seu feedback
         </h2>
         <p className="mt-2 text-lg/8 text-gray-400">
           Forneça todas as informações necessárias abaixo. Em seguida, toque ou
-          clique em "Vamos conversar" para entrar em contato conosco.
+          clique em "Vamos conversar". Sua opinião ajuda a melhorar este
+          projeto!
         </p>
       </div>
       <form
@@ -21,10 +45,11 @@ export default function ContactForm() {
               htmlFor="first-name"
               className="block text-sm/6 font-semibold text-white"
             >
-              Nome
+              Nome <span className="text-red-500">*</span>
             </label>
             <div className="mt-2.5">
               <input
+                required
                 id="first-name"
                 name="first-name"
                 type="text"
@@ -55,10 +80,10 @@ export default function ContactForm() {
               htmlFor="email"
               className="block text-sm/6 font-semibold text-white"
             >
-              Email
+              Email <span className="text-red-500">*</span>
             </label>
             <div className="mt-2.5">
-              <input
+              <input required
                 id="email"
                 name="email"
                 type="email"
@@ -76,25 +101,30 @@ export default function ContactForm() {
             </label>
             <div className="mt-2.5">
               <div className="flex rounded-md bg-white/5 outline-1 -outline-offset-1 outline-white/10 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-500">
-                <div className="grid shrink-0 grid-cols-1 focus-within:relative">
+                <div className="w-24 relative items-center focus-within:relative">
                   <select
                     id="country"
                     name="country"
                     autoComplete="country"
                     aria-label="Country"
-                    className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-transparent py-2 pr-7 pl-3.5 text-base text-gray-400 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
+                    className="block col-start-1 row-start-1 w-full appearance-none rounded-md bg-transparent py-2 pr-2 pl-3.5 text-base text-gray-400 placeholder:text-gray-500 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6"
                   >
                     <option>BR +55</option>
-                    <option>US +1</option>
-                    <option>EU</option>
+
                   </select>
+                  <ChevronDown className="pointer-events-none absolute right-2 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-500"/>   
                 </div>
+
                 <input
                   id="phone-number"
                   name="phone-number"
                   autoComplete="tel"
                   type="text"
-                  placeholder="99 9 9999-9999"
+                  inputMode="numeric"
+                  value={phone}
+                  onChange={handleChange}
+                  maxLength={15}
+                  placeholder="(99) 99999-9999"
                   className="block min-w-0 grow bg-transparent py-1.5 pr-3 pl-1 text-base text-white placeholder:text-gray-500 focus:outline-none sm:text-sm/6"
                 />
               </div>
@@ -105,10 +135,10 @@ export default function ContactForm() {
               htmlFor="message"
               className="block text-sm/6 font-semibold text-white"
             >
-              Mensagem
+              Mensagem <span className="text-red-500">*</span>
             </label>
             <div className="mt-2.5">
-              <textarea
+              <textarea required
                 id="message"
                 name="message"
                 rows={4}
@@ -122,6 +152,7 @@ export default function ContactForm() {
               <div className="group relative inline-flex w-8 shrink-0 rounded-full bg-white/5 p-px inset-ring inset-ring-white/10 outline-offset-2 outline-indigo-500 transition-colors duration-200 ease-in-out has-checked:bg-indigo-500 has-focus-visible:outline-2">
                 <span className="size-4 rounded-full bg-white shadow-xs ring-1 ring-gray-900/5 transition-transform duration-200 ease-in-out group-has-checked:translate-x-3.5" />
                 <input
+                  required
                   id="agree-to-policies"
                   name="agree-to-policies"
                   type="checkbox"
@@ -150,7 +181,7 @@ export default function ContactForm() {
             type="submit"
             className="block w-full rounded-md bg-indigo-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
           >
-            Vamos conversar
+            Enviar
           </button>
         </div>
       </form>

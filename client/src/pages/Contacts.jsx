@@ -3,7 +3,7 @@ import ContactsList from "../components/ContactsList";
 
 export default function Contacts() {
   return (
-    <div className="isolate h-screen w-screen bg-[#121212] font-inter">
+    <div className="isolate h-full min-h-screen w-full min-w-screen bg-[#121212] font-inter">
       <div
         aria-hidden="true"
         className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
