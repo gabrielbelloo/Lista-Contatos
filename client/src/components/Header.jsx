@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 import {
   Disclosure,
   DisclosureButton,
@@ -15,19 +17,20 @@ import {
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
 
+const navigation = [
+  { name: "Dashboard", href: "/dashboard" },
+  { name: "Contacts", href: "/contacts" },
+  { name: "Departments", href: "/departments" },
+  { name: "Reports", href: "/reports" },
+];
+
 const user = {
   name: "Gabriel Bello",
   email: "bellodealmeidagabriel@gmail.com",
   imageUrl:
     "https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_640.png",
 };
-const navigation = [
-  { name: "Dashboard", href: "#", current: true },
-  { name: "Contacts", href: "#", current: false },
-  { name: "Projects", href: "#", current: false },
-  { name: "Calendar", href: "#", current: false },
-  { name: "Reports", href: "#", current: false },
-];
+
 const userNavigation = [
   { name: "Your profile", href: "#" },
   { name: "Settings", href: "#" },
@@ -46,28 +49,27 @@ export default function Header() {
           <div className="flex h-16 items-center justify-between">
             <div className="flex items-center">
               <div className="shrink-0">
-                <img
-                  alt="Logo"
-                  src="/contact.svg"
-                  className="size-8"
-                />
+                <img alt="Logo" src="/contacts.svg" className="size-8" />
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
                   {navigation.map((item) => (
-                    <a
+                    <NavLink
                       key={item.name}
-                      href={item.href}
+                      to={item.href}
                       aria-current={item.current ? "page" : undefined}
-                      className={classNames(
-                        item.current
-                          ? "bg-gray-950/50 text-white font-medium"
-                          : "text-gray-300 hover:bg-white/5 hover:text-white",
-                        "rounded-md px-3 py-2 text-sm font-medium"
-                      )}
+                      end
+                      className={({ isActive }) =>
+                        classNames(
+                          isActive
+                            ? "bg-gray-950/50 text-white font-medium"
+                            : "text-gray-300 hover:bg-white/5 hover:text-white",
+                          "rounded-md px-3 py-2 text-sm font-medium"
+                        )
+                      }
                     >
                       {item.name}
-                    </a>
+                    </NavLink>
                   ))}
                 </div>
               </div>
