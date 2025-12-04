@@ -1,29 +1,32 @@
 import pool from "../config/db.js";
 
 export const getAllUsersService = async () => {;
-    const result = await pool.query("SELECT * FROM contatos");
+    const result = await pool.query("SELECT * FROM contacts");
     return result.rows;
 };
+
 export const getUserByIdService = async (id) => {
-    const result = await pool.query("SELECT * FROM contatos WHERE id = $1", [id]);
+    const result = await pool.query("SELECT * FROM contacts WHERE id = $1", [id]);
     return result.rows[0];
 };
-export const createUserService = async (nome, setor, ramal, email, telefone) => {
+
+export const createUserService = async (name, position, department_id, extension_id) => {
     const result = await pool.query(
-    "INSERT INTO contatos (nome, setor, ramal, email, telefone) VALUES ($1, $2, $3, $4, $5) RETURNING *", [nome, setor, ramal, email, telefone]);
+    "INSERT INTO contacts (name, position, department_id, extension_id) VALUES ($1, $2, $3, $4) RETURNING *", [name, position, department_id, extension_id]);
     return result.rows[0];
 };
-export const updateUserService = async (id, nome, setor, ramal, email, telefone) => {
+
+export const updateUserService = async (id, name, position, department_id, extension_id) => {
     const result = await pool.query(
-    "UPDATE contatos SET nome = $1, setor = $2, ramal = $3, email = $4, telefone = $5 WHERE id = $6 RETURNING *",
-    [nome, setor, ramal, email, telefone, id]
+    "UPDATE contatos SET name = $1, position = $2, department_id = $3, extension_id = $4 WHERE id = $6 RETURNING *",
+    [name, position, department_id, extension_id, id]
     );
     return result.rows[0];
 };
+
 export const deleteUserService = async (id) => {
-    const result = await pool.query("DELETE FROM contatos WHERE id = $1 RETURNING *", [id]
+    const result = await pool.query("DELETE FROM contacts WHERE id = $1 RETURNING *", [id]
 
     );
     return result.rows[0];
-
 };

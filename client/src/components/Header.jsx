@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import IconButton from "./IconButton";
 
 import {
   Disclosure,
@@ -15,6 +16,8 @@ import {
   BellIcon,
   XMarkIcon,
   MagnifyingGlassIcon,
+  FunnelIcon,
+  UserPlusIcon,
 } from "@heroicons/react/24/outline";
 
 const navigation = [
@@ -75,31 +78,48 @@ export default function Header() {
               </div>
             </div>
 
-            <div className="flex items-center">
+            <div className="flex items-center gap-10">
+
+              <div className="flex gap-5">
+                  <IconButton
+                    icon={<FunnelIcon aria-hidden="true" className="size-6" />}
+                    tooltip="Filter contacts"
+                    onClick={() => {
+                      console.log("Filter contacts clicked");
+                    }}
+                  />
+                  <IconButton
+                    icon={<UserPlusIcon aria-hidden="true" className="size-6" />}
+                    tooltip="Add new contact"
+                    onClick={() => {
+                      console.log("Add new contact clicked");
+                    }}
+                  />
+              </div>
+
               <div className="relative text-gray-400">
                 <MagnifyingGlassIcon className="absolute left-3 top-2.5 h-5 w-5 text-gray-400 pointer-events-none" />
                 <Input
                   type="text"
                   placeholder="Search"
                   name="full_name"
-                  className="block rounded-md bg-white/5 pl-10 pr-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-500 focus:outline-1 focus:-outline-offset-1 focus:outline-indigo-700 w-60 sm:w-85"
+                  className="block rounded-full outline-1 outline-gray-700 pl-10 pr-3.5 py-2 text-base text-white/85 transition-all duration-150 placeholder:text-gray-500 focus:outline-2 focus:outline-indigo-500  w-60 sm:w-85"
                 />
               </div>
 
               <div className="hidden md:block">
-                <div className="flex items-center md:ml-6">
-                  <button
-                    type="button"
-                    className="relative rounded-full p-1 text-gray-400 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500"
-                  >
-                    <span className="absolute -inset-1.5" />
-                    <span className="sr-only">View notifications</span>
-                    <BellIcon aria-hidden="true" className="size-6" />
-                  </button>
+                <div className="flex gap-5">
+                    <IconButton
+                      icon={<BellIcon aria-hidden="true" className="size-6" />}
+                      tooltip="View notifications"
+                      onClick={() => {
+                        console.log("View notifications clicked");
+                      }}
+                    />
 
                   {/* Profile dropdown */}
-                  <Menu as="div" className="relative ml-3">
-                    <MenuButton className="relative flex max-w-xs items-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+                  <Menu as="div" className="relative">
+                    <MenuButton className="cursor-pointer relative flex max-w-xs items-center rounded-full ">
                       <span className="absolute -inset-1.5" />
                       <span className="sr-only">Open user menu</span>
                       <img
