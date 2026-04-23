@@ -5,13 +5,14 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "emails")
 public class EmailEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
-    private String emaiAddress;
+    private String emailAddress;
 
     @Enumerated(EnumType.STRING)
     private EmailType type;
@@ -21,20 +22,20 @@ public class EmailEntity {
     @JsonBackReference
     private ContactEntity contact;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getEmaiAddress() {
-        return emaiAddress;
+    public String getEmailAddress() {
+        return emailAddress;
     }
 
-    public void setEmaiAddress(String emaiAddress) {
-        this.emaiAddress = emaiAddress;
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
 
     public EmailType getType() {
