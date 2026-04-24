@@ -13,4 +13,17 @@ public class EmailMapper {
 
         return entity;
     }
+
+    public static EmailDTO toDTO(EmailEntity entity) {
+        EmailDTO dto = new EmailDTO();
+
+        if (entity.getContact() != null) {
+            dto.setContactId(entity.getContact().getId());
+        }
+
+        dto.setEmailAddress(entity.getEmailAddress());
+        dto.setType(entity.getType());
+
+        return dto;
+    }
 }

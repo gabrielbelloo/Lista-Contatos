@@ -12,4 +12,17 @@ public class PhoneMapper {
 
         return entity;
     }
+
+    public static PhoneDTO toDTO(PhoneEntity entity){
+        PhoneDTO dto = new PhoneDTO();
+
+        if (entity.getContact() != null){
+            dto.setContactId(entity.getContact().getId());
+        }
+
+        dto.setPhoneNumber(entity.getPhoneNumber());
+        dto.setType(entity.getType());
+
+        return dto;
+    }
 }
