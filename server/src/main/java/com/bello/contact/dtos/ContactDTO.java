@@ -1,21 +1,42 @@
 package com.bello.contact.dtos;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 import java.util.List;
 
 public class ContactDTO {
     private Long id;
+
+    @NotBlank(message = "name must not be blank")
+    @Size(max = 100, message = "name must be at most 100 characters")
     private String name;
+
+    @NotBlank(message = "position must not be blank")
+    @Size(max = 100, message = "name must be at most 100 characters")
     private String position;
+
+    @NotNull(message = "departmentId must not be null")
     private Long departmentId;
+
+    @NotNull(message = "extensionId must not be null")
     private Long extensionId;
+
+    @NotNull(message = "phones must not be null")
+    @Size(min = 1, message = "at least one phone is required")
     private List<PhoneDTO> phones;
+
+    @NotNull(message = "emails must not be null")
+    @Size(min = 1, message = "at least one email is required")
     private List<EmailDTO> emails;
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Long id){
         this.id = id;
     }
 
