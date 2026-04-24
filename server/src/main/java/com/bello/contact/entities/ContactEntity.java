@@ -1,8 +1,8 @@
 package com.bello.contact.entities;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -13,24 +13,25 @@ public class ContactEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false)
     private String position;
 
-    @ManyToOne
-    @JoinColumn(name = "department_id")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "department_id", nullable = false)
     private DepartmentEntity department;
 
-    @ManyToOne
-    @JoinColumn(name = "extension_id")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "extension_id", nullable = false)
     private ExtensionEntity extension;
 
     @OneToMany(mappedBy = "contact", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
-    private List<PhoneEntity> phones;
+    private List<PhoneEntity> phones = new ArrayList<>();
 
     @OneToMany(mappedBy = "contact", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference
-    private List<EmailEntity> emails;
+    private List<EmailEntity> emails = new ArrayList<>();
 
     public Long getId() {
         return id;

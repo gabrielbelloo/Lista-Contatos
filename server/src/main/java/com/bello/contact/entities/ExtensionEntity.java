@@ -2,6 +2,7 @@ package com.bello.contact.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 import java.util.List;
 
@@ -12,10 +13,11 @@ public class ExtensionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false)
     private String extensionNumber;
 
-    @OneToMany(mappedBy = "extension")
-    @JsonBackReference
+    @OneToMany(mappedBy = "extension", fetch = FetchType.LAZY)
     private List<ContactEntity> contacts;
 
     public Long getId() {

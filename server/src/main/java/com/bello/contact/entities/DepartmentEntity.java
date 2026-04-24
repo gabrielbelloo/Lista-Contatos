@@ -1,6 +1,5 @@
 package com.bello.contact.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -12,10 +11,11 @@ public class DepartmentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "department")
-    @JsonBackReference
+    @OneToMany(mappedBy = "department", fetch = FetchType.LAZY)
     private List<ContactEntity> contacts;
 
     public Long getId() {

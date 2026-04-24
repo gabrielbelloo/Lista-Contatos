@@ -1,8 +1,9 @@
 package com.bello.contact.entities;
 
 import com.bello.contact.enums.EmailType;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "emails")
@@ -12,14 +13,16 @@ public class EmailEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Email
+    @NotBlank
     private String emailAddress;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private EmailType type;
 
-    @ManyToOne
-    @JoinColumn(name = "contact_id")
-    @JsonBackReference
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "contact_id", nullable = false)
     private ContactEntity contact;
 
     public Long getId() {

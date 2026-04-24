@@ -1,7 +1,7 @@
 package com.bello.contact.entities;
 
 import com.bello.contact.enums.PhoneType;
-import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -12,14 +12,15 @@ public class PhoneEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String phoneNumber;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private PhoneType type;
 
-    @ManyToOne
-    @JoinColumn(name = "contact_id")
-    @JsonBackReference
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "contact_id", nullable = false)
     private ContactEntity contact;
 
     public Long getId() {
