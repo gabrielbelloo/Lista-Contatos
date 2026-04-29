@@ -1,6 +1,8 @@
 package com.bello.contact.services;
 
+import com.bello.contact.dtos.ExtensionDTO;
 import com.bello.contact.entities.ExtensionEntity;
+import com.bello.contact.mappers.ExtensionMapper;
 import com.bello.contact.repositories.ExtensionRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
@@ -16,27 +18,28 @@ public class ExtensionService {
         this.extensionRepository = extensionRepository;
     }
 
-    public ExtensionEntity saveExtension(ExtensionEntity extension){
+    public ExtensionDTO saveExtension(ExtensionDTO dto){
+        ExtensionEntity extension = ExtensionMapper.toEntity(dto);
         if (extensionRepository.findByExtensionNumber(extension.getExtensionNumber()).isPresent()){
             throw new RuntimeException("extension already exists");
         }
-        return extensionRepository.save(extension);
+        return ExtensionMapper.toDTO(extensionRepository.save(extension));
     }
 
     public List<ExtensionEntity> findAll(){
         return extensionRepository.findAll();
     }
 
-    public ExtensionEntity findByIdExtension(Long id){
-        return extensionRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("extension not found"));
+    public ExtensionDTO findByIdExtension(Long id){
+        return ExtensionMapper.toDTO(extensionRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("extension not found")));
     }
 
-    public ExtensionEntity updateExtension(ExtensionEntity extension, Long id){
-        ExtensionEntity entity = extensionRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("extension not found"));
+    public ExtensionDTO updateExtension(ExtensionDTO dto, Long id){
+        ExtensionEntity entity = ExtensionMapper.toEntity(findByIdExtension(id));
 
-        entity.setExtensionNumber(extension.getExtensionNumber());
+        entity.setExtensionNumber(dto.getExtensionNumber());
 
-        return extensionRepository.save(entity);
+        return ExtensionMapper.toDTO(extensionRepository.save(entity));
     }
 
     public void deleteExtension(Long id){
