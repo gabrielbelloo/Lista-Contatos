@@ -16,6 +16,7 @@ public class ExtensionMapper {
     public static ExtensionDTO toDTO(ExtensionEntity entity){
         ExtensionDTO dto = new ExtensionDTO();
 
+        dto.setId(entity.getId());
         dto.setExtensionNumber(entity.getExtensionNumber());
 
         return dto;
