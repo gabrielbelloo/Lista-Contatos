@@ -17,13 +17,13 @@ public class DepartmentService {
         this.departmentRepository = departmentRepository;
     }
 
-    public DepartmentEntity saveDepartment(DepartmentDTO dto){
+    public DepartmentDTO saveDepartment(DepartmentDTO dto){
         DepartmentEntity department = DepartmentMapper.toEntity(dto);
 
         if (departmentRepository.findByName(department.getName()).isPresent()){
             throw new RuntimeException("department already exists");
         }
-        return departmentRepository.save(department);
+        return DepartmentMapper.toDTO(departmentRepository.save(department));
     }
 
     public List<DepartmentEntity> findAll(){
@@ -39,7 +39,7 @@ public class DepartmentService {
 
         entity.setName(dto.getName());
 
-        return departmentRepository.save(entity);
+        return DepartmentMapper.toDTO(departmentRepository.save(entity));
     }
 
     public void deleteDepartment(Long id){
