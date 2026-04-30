@@ -21,6 +21,7 @@ public class EmailMapper {
             dto.setContactId(entity.getContact().getId());
         }
 
+        dto.setId(entity.getId());
         dto.setEmailAddress(entity.getEmailAddress());
         dto.setType(entity.getType());
 

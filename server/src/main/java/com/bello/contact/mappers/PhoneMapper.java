@@ -20,6 +20,7 @@ public class PhoneMapper {
             dto.setContactId(entity.getContact().getId());
         }
 
+        dto.setId(entity.getId());
         dto.setPhoneNumber(entity.getPhoneNumber());
         dto.setType(entity.getType());
 
