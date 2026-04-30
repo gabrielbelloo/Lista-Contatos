@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 public class PhoneDTO {
+    private Long id;
 
     @NotBlank(message = "phoneNumber must not be blank")
     @Size(max = 20, message = "phoneNumber must be at most 20 characters")
@@ -15,6 +16,14 @@ public class PhoneDTO {
     private PhoneType type;
 
     private Long contactId;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getPhoneNumber() {
         return phoneNumber;

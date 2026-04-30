@@ -7,6 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 public class EmailDTO {
+    private Long id;
 
     @NotBlank(message = "emailAddress must not be blank")
     @Email(message = "emailAddress must be valid")
@@ -17,6 +18,14 @@ public class EmailDTO {
     private EmailType type;
 
     private Long contactId;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getEmailAddress() {
         return emailAddress;
