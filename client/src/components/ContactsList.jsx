@@ -47,7 +47,7 @@ export default function ContactsList() {
                   {contact.name}
                 </p>
                 <p className="text-gray-400 font-medium text-[0.8rem] ">
-                  {contact.position} - {contact.department_name}
+                  {contact.position} - {contact.departmentName}
                 </p>
               </td>
               <td className="px-6 py-3 align-top">
@@ -55,7 +55,7 @@ export default function ContactsList() {
                   {contact.emails?.length ? (
                     contact.emails.map((email) => (
                       <li key={email.id} className="flex items-center gap-2">
-                        <span className="truncate">{email.email_address}</span>
+                        <span className="truncate">{email.emailAddress}</span>
                         <span className="ml-2 text-[0.8rem] text-gray-400">
                           ({email.type})
                         </span>
@@ -72,7 +72,7 @@ export default function ContactsList() {
                   {contact.phones?.length ? (
                     contact.phones.map((phone) => (
                       <li key={phone.id} className="flex items-center gap-2">
-                        <span className="truncate">{phone.phone_number}</span>
+                        <span className="truncate">{phone.phoneNumber}</span>
                         <span className="ml-2 text-[0.8rem] text-gray-400">
                           ({phone.type})
                         </span>
@@ -84,7 +84,7 @@ export default function ContactsList() {
                 </ul>
               </td>
               <td className="px-6 py-3 font-normal text-base text-gray-900 dark:text-gray-200">
-                {contact.extension_number}
+                {contact.extensionNumber}
               </td>
             </tr>
           ))}
