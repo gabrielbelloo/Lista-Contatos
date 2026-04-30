@@ -1,13 +1,12 @@
 package com.bello.contact.dtos;
 
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 import java.util.List;
 
-public class ContactDTO {
+public class ContactCreateDTO {
     private Long id;
 
     @NotBlank(message = "name must not be blank")
