@@ -1,6 +1,7 @@
 package com.bello.contact.controllers;
 
-import com.bello.contact.dtos.ContactDTO;
+import com.bello.contact.dtos.ContactCreateDTO;
+import com.bello.contact.dtos.ContactResponseDTO;
 import com.bello.contact.mappers.ContactMapper;
 import com.bello.contact.services.ContactService;
 import jakarta.persistence.EntityNotFoundException;
@@ -22,40 +23,37 @@ public class ContactController {
     }
 
     @PostMapping
-    public ResponseEntity<ContactDTO> add(@RequestBody @Valid ContactDTO dto){
+    public ResponseEntity<ContactResponseDTO> add(@RequestBody @Valid ContactCreateDTO dto){
         try {
-            ContactDTO request = contactService.saveContact(dto);
-            URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(request.getId()).toUri();
-            return ResponseEntity.created(uri).body(request);
+            ContactResponseDTO response = contactService.saveContact(dto);
+            URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(response.getId()).toUri();
+            return ResponseEntity.created(uri).body(response);
         } catch (EntityNotFoundException e) {
             return ResponseEntity.notFound().build();
         }
     }
 
     @GetMapping
-    public ResponseEntity<List<ContactDTO>> list(){
-        List<ContactDTO> request = contactService.findAllContacts()
-                .stream()
-                .map(ContactMapper::toDTO)
-                .toList();
-        return ResponseEntity.ok(request);
+    public ResponseEntity<List<ContactResponseDTO>> list(){
+        List<ContactResponseDTO> response = contactService.findAllContacts();
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ContactDTO> find(@PathVariable Long id){
+    public ResponseEntity<ContactResponseDTO> find(@PathVariable Long id){
         try {
-            ContactDTO request = contactService.findByIdContact(id);
-            return ResponseEntity.ok(request);
+            ContactResponseDTO response = contactService.findByIdContact(id);
+            return ResponseEntity.ok(response);
         } catch (EntityNotFoundException e) {
             return ResponseEntity.notFound().build();
         }
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ContactDTO> update(@RequestBody @Valid ContactDTO dto, @PathVariable Long id){
+    public ResponseEntity<ContactResponseDTO> update(@RequestBody @Valid ContactCreateDTO dto, @PathVariable Long id){
         try {
-            ContactDTO request = contactService.updateContact(dto, id);
-            return ResponseEntity.ok(request);
+            ContactResponseDTO response = contactService.updateContact(dto, id);
+            return ResponseEntity.ok(response);
         } catch (EntityNotFoundException e) {
             return ResponseEntity.notFound().build();
         }

@@ -1,6 +1,7 @@
 package com.bello.contact.services;
 
-import com.bello.contact.dtos.ContactDTO;
+import com.bello.contact.dtos.ContactCreateDTO;
+import com.bello.contact.dtos.ContactResponseDTO;
 import com.bello.contact.entities.ContactEntity;
 import com.bello.contact.entities.DepartmentEntity;
 import com.bello.contact.entities.ExtensionEntity;
@@ -28,7 +29,7 @@ public class ContactService {
     }
 
     @Transactional
-    public ContactDTO saveContact(ContactDTO dto){
+    public ContactResponseDTO saveContact(ContactCreateDTO dto){
         DepartmentEntity department = departmentRepository.findById(dto.getDepartmentId())
                             .orElseThrow(() -> new EntityNotFoundException("department not found"));
         ExtensionEntity extension = extensionRepository.findById(dto.getExtensionId())
@@ -36,23 +37,23 @@ public class ContactService {
 
         ContactEntity contact = ContactMapper.toEntity(dto, department, extension);
 
-        contact.getPhones().forEach(phone -> phone.setContact(contact));
-        contact.getEmails().forEach(email -> email.setContact(contact));
-
         return ContactMapper.toDTO(contactRepository.save(contact));
     }
 
-    public List<ContactEntity> findAllContacts(){
-        return contactRepository.findAll();
+    public List<ContactResponseDTO> findAllContacts(){
+        return contactRepository.findAll()
+                .stream()
+                .map(ContactMapper::toDTO)
+                .toList();
     }
 
-    public ContactDTO findByIdContact(Long id){
+    public ContactResponseDTO findByIdContact(Long id){
         return ContactMapper.toDTO(contactRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("contact not found")));
     }
 
     @Transactional
-    public ContactDTO updateContact(ContactDTO dto, Long id){
+    public ContactResponseDTO updateContact(ContactCreateDTO dto, Long id){
         ContactEntity contact = contactRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("contact not found"));
 
