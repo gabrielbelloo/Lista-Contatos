@@ -1,11 +1,12 @@
 package com.bello.contact.mappers;
 
-import com.bello.contact.dtos.ContactDTO;
+import com.bello.contact.dtos.ContactCreateDTO;
+import com.bello.contact.dtos.ContactResponseDTO;
 import com.bello.contact.entities.*;
 
 public class ContactMapper {
 
-    public static ContactEntity toEntity(ContactDTO dto, DepartmentEntity department, ExtensionEntity extension) {
+    public static ContactEntity toEntity(ContactCreateDTO dto, DepartmentEntity department, ExtensionEntity extension) {
         ContactEntity entity = new ContactEntity();
 
         entity.setName(dto.getName());
@@ -40,20 +41,22 @@ public class ContactMapper {
         return entity;
     }
 
-    public static ContactDTO toDTO(ContactEntity entity) {
-        ContactDTO dto = new ContactDTO();
+    public static ContactResponseDTO toDTO(ContactEntity entity){
+        ContactResponseDTO dto = new ContactResponseDTO();
 
         dto.setId(entity.getId());
         dto.setName(entity.getName());
         dto.setPosition(entity.getPosition());
 
-        if (entity.getDepartment() != null) {
-            dto.setDepartmentId(entity.getDepartment().getId());
-        }
+        dto.setDepartmentName(entity.getDepartment() != null
+                                ? entity.getDepartment().getName()
+                                : null
+        );
 
-        if (entity.getExtension() != null) {
-            dto.setExtensionId(entity.getExtension().getId());
-        }
+        dto.setExtensionNumber(entity.getExtension() != null
+                                ? entity.getExtension().getExtensionNumber()
+                                :null
+        );
 
         if (entity.getPhones() != null){
             dto.setPhones(
@@ -74,7 +77,7 @@ public class ContactMapper {
         return dto;
     }
 
-    public static void updateEntity(ContactEntity entity, ContactDTO dto, DepartmentEntity department, ExtensionEntity extension){
+    public static void updateEntity(ContactEntity entity, ContactCreateDTO dto, DepartmentEntity department, ExtensionEntity extension){
         entity.setName(dto.getName());
         entity.setPosition(dto.getPosition());
         entity.setDepartment(department);
